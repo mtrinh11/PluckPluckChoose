@@ -1,0 +1,9 @@
+.layout {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #f4eeed;
+    color: #303030;
+}
