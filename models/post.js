@@ -14,10 +14,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Post.init({
-    picture: DataTypes.STRING,
-    upvote: DataTypes.INTEGER,
-    downvote: DataTypes.INTEGER,
-    account_id: DataTypes.STRING
+    picture: {
+     type: DataTypes.STRING,
+     allowNull: false
+    },
+      upvote:{ 
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+      allowNull: false
+    },
+    downvote:{ 
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+      allowNull: false
+    },
+    account_id:{
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Post',

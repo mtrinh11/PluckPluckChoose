@@ -14,7 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Account.init({
-    user_id: DataTypes.INTEGER
+    user_id:
+    {
+       types: DataTypes.INTEGER,
+       allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Account',

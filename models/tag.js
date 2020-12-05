@@ -14,8 +14,16 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Tag.init({
-    post_id: DataTypes.INTEGER,
-    category_id: DataTypes.INTEGER
+    post_id: 
+    {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    category_id: 
+    {
+      type: DataTypes.INTEGER,
+      allowNull:false
+    }
   }, {
     sequelize,
     modelName: 'Tag',
