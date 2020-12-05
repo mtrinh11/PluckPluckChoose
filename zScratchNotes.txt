@@ -102,19 +102,25 @@ UserController
   LoginUser
 
 AccountController
-  Do we really need to do much here? And if so, what?
+  GetAccount
+      -also gets posts made by that account
 
 PostController
   CreatePost
   GetSinglePost
   GetAllPosts
+  EditPost
   UpvotePost
   DownvotePost
   DeletePost
 
 CategoryController
+  CreateCategory
+  a user cannot edit, create, or delete categories
+  
 TagController
-
+  TagPostToCategory
+  GetAllPostsByCategory
 
   ____  _____ ______     _____ ____ _____ ____  
  / ___|| ____|  _ \ \   / /_ _/ ___| ____/ ___| 
@@ -136,14 +142,6 @@ CategoryServices
  |  __/ ___ \ |_| | |___ ___) |
  |_| /_/   \_\____|_____|____/ 
                                
-SignUpPage
-  signs up a user
-LoginPage
-  logs in a user  
-HomePage
-  welcomes the user, explains the app
-ViewPost
-  brings a post up
 
 
 
