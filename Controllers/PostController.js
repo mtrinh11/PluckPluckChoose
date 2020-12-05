@@ -1,11 +1,14 @@
 const {Post} = require('../models')
 const UserController = require('./UserController')
-7
+
+//This is all pending the Post Model creation
+
+
 const CreatePost = async (request, response) => {
     try{
         const body = request.body
         console.log('BACKEND: PostController: CreatePost --request.body', body)
-        const post = await /* Post Model */.create(body)
+        const post = await Post.create(body)
         console.log('BACKEND: PostController: CreatePost --created post')
         response.send(post)
     }catch(error){throw error}
@@ -13,7 +16,7 @@ const CreatePost = async (request, response) => {
  
 const GetSinglePost = async (request, response) => {
     try{
-        const onePost = await /**Post Model */.findByPk(request.params.post_id)
+        const onePost = await Post.findByPk(request.params.post_id)
         console.log('BACKEND: PostController: GetSinglePost')
         response.send(onePost)
     }catch(error){throw error}
@@ -21,7 +24,7 @@ const GetSinglePost = async (request, response) => {
  
 const GetAllPosts = async (request, response) => {
     try{
-        const allPosts = await /**Post Model */.findAll()
+        const allPosts = await Post.findAll()
         console.log('BACKEND: PostController: GetAllPosts')
         response.send(allPosts)
     }catch(error){throw error}
@@ -31,7 +34,7 @@ const EditPost = async (request, response) => {
     try{
         let postId = parseInt(request.params.post_id)
         let postDetails = request.body
-        let editedPost = await /**Post Model */.update(postDetails,{
+        let editedPost = await Post.update(postDetails,{
             where: {id: postId}
         })
         console.log('BACKEND: PostController: EditPost')
@@ -42,20 +45,35 @@ const EditPost = async (request, response) => {
 const DeletePost = async (request, response) => {
     try{
         let postId = parseInt(request.params.post_id)
-        await /**PostModel*/.destroy({
+        await Post.destroy({
             where: {
                 id: postId
             }
         })
-        console.log('BACKEND: PostController: Post')
-        response.send({message: })
+        console.log('BACKEND: PostController: DeletePost')
+        response.send({message: `Deleted post with an id of ${postId}`})
     }catch(error){throw error}
 }
  
-const Post = async (request, response) => {
+const UpvotePost = async (request, response) => {
     try{
-        console.log('BACKEND: PostController: Post')
-        response.send()
+        const upvotedPost = await Post.increment( 
+            {upvotes: 1},
+            {where: {id: request.params.post_id}}
+        )
+        console.log('BACKEND: PostController: UpvotePost')
+        response.send(upvotedPost)
+    }catch(error){throw error}
+}
+ 
+const DownvotePost = async (request, response) => {
+    try{
+        const DownvotedPost = await Post.increment( 
+            {Downvotes: 1},
+            {where: {id: request.params.post_id}}
+        )
+        console.log('BACKEND: PostController: DownvotePost')
+        response.send(DownvotedPost)
     }catch(error){throw error}
 }
  
