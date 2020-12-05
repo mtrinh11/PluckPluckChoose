@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const category = require('./category');
 module.exports = (sequelize, DataTypes) => {
   class Tag extends Model {
     /**
@@ -14,15 +15,23 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Tag.init({
-    post_id: 
-    {
+    postId: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      field: "post_id",
+      allowNull: false,
+      references: {
+        model: "post",
+        key: "id"
+      }
     },
-    category_id: 
-    {
+    categoryId: {
       type: DataTypes.INTEGER,
-      allowNull:false
+      field: "category_id",
+      allowNull:false,
+      references: {
+        model: "category",
+        key: "id"
+      }
     }
   }, {
     sequelize,

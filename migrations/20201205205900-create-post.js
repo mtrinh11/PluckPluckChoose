@@ -20,8 +20,13 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      account_id: {
-        type: Sequelize.STRING,
+      accountId: {
+        field: 'account_id',
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'accounts',
+          key: 'id'
+        },
         allowNull: false
       },
       createdAt: {
