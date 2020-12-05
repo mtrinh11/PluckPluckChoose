@@ -1,0 +1,190 @@
+ █████   █████ ██████████ ███████████   ██████████    █████   ███   █████ ██████████      █████████     ███████         
+░░███   ░░███ ░░███░░░░░█░░███░░░░░███ ░░███░░░░░█   ░░███   ░███  ░░███ ░░███░░░░░█     ███░░░░░███  ███░░░░░███       
+ ░███    ░███  ░███  █ ░  ░███    ░███  ░███  █ ░     ░███   ░███   ░███  ░███  █ ░     ███     ░░░  ███     ░░███      
+ ░███████████  ░██████    ░██████████   ░██████       ░███   ░███   ░███  ░██████      ░███         ░███      ░███      
+ ░███░░░░░███  ░███░░█    ░███░░░░░███  ░███░░█       ░░███  █████  ███   ░███░░█      ░███    █████░███      ░███      
+ ░███    ░███  ░███ ░   █ ░███    ░███  ░███ ░   █     ░░░█████░█████░    ░███ ░   █   ░░███  ░░███ ░░███     ███       
+ █████   █████ ██████████ █████   █████ ██████████       ░░███ ░░███      ██████████    ░░█████████  ░░░███████░        
+░░░░░   ░░░░░ ░░░░░░░░░░ ░░░░░   ░░░░░ ░░░░░░░░░░         ░░░   ░░░      ░░░░░░░░░░      ░░░░░░░░░     ░░░░░░░          
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        
+   █████████     █████████    █████████   █████ ██████   █████        ███████████     ███████    █████ █████  █████████ 
+  ███░░░░░███   ███░░░░░███  ███░░░░░███ ░░███ ░░██████ ░░███        ░░███░░░░░███  ███░░░░░███ ░░███ ░░███  ███░░░░░███
+ ░███    ░███  ███     ░░░  ░███    ░███  ░███  ░███░███ ░███         ░███    ░███ ███     ░░███ ░░███ ███  ░███    ░░░ 
+ ░███████████ ░███          ░███████████  ░███  ░███░░███░███         ░██████████ ░███      ░███  ░░█████   ░░█████████ 
+ ░███░░░░░███ ░███    █████ ░███░░░░░███  ░███  ░███ ░░██████         ░███░░░░░███░███      ░███   ░░███     ░░░░░░░░███
+ ░███    ░███ ░░███  ░░███  ░███    ░███  ░███  ░███  ░░█████         ░███    ░███░░███     ███     ░███     ███    ░███
+ █████   █████ ░░█████████  █████   █████ █████ █████  ░░█████  ██    ███████████  ░░░███████░      █████   ░░█████████ 
+░░░░░   ░░░░░   ░░░░░░░░░  ░░░░░   ░░░░░ ░░░░░ ░░░░░    ░░░░░  ██    ░░░░░░░░░░░     ░░░░░░░       ░░░░░     ░░░░░░░░░  
+                                                              ░░                                                        
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        
+       .-.             
+      / (_)            
+     /      .-._..-.   
+    /      (   )(   )  
+ .-/.    .-.`-'  `-/-' 
+(_/ `-._.      -._/    
+    I went through this to familiarize myself with how the whole project is gonna work -NZ, 12.5.noonish
+
+
+
+
+
+  ____   ___  _   _ _____ _____ ____  
+ |  _ \ / _ \| | | |_   _| ____/ ___| 
+ | |_) | | | | | | | | | |  _| \___ \ 
+ |  _ <| |_| | |_| | | | | |___ ___) |
+ |_| \_\\___/ \___/  |_| |_____|____/ 
+                                      
+AppRouter DONEZO
+
+User and Account Routes
+  UserRouter DONEZO
+    CreateUser
+    GetUser
+    LoginUser
+  AccountRouter
+    I'm not sure what to do here since it's gonna be post MVP stuff for the most part
+
+PostRouter
+  //CREATE
+  CreatePost
+  //READ
+  GetSinglePost
+  GetAllPosts
+  //UPDATE
+  UpvotePost
+  DownvotePost
+  //DELETE
+  DeletePost
+
+
+TagRouter
+CategoryRouter
+
+
+Other Unstorted Functions to Add
+  Where do they belong??
+  We need to be able to add posts to tags and then use categories to go through it
+  The tag through board is our MVP Boss Battle...
+    what the fuck is this and 
+        how the fuck does it do the shid
+
+  __  __  ___  ____  _____ _     ____  
+ |  \/  |/ _ \|  _ \| ____| |   / ___| 
+ | |\/| | | | | | | |  _| | |   \___ \ 
+ | |  | | |_| | |_| | |___| |___ ___) |
+ |_|  |_|\___/|____/|_____|_____|____/ 
+
+All information can be found in the ERD but it's here for ease of access in another format
+
+User
+  username:string,email:string,password_digest:string
+Account
+  wtf do we do
+Post
+  picture:string,upvotes:integer,downvotes:integer
+Tag
+Category
+
+   ____ ___  _   _ _____ ____   ___  _     _     _____ ____  ____  
+  / ___/ _ \| \ | |_   _|  _ \ / _ \| |   | |   | ____|  _ \/ ___| 
+ | |  | | | |  \| | | | | |_) | | | | |   | |   |  _| | |_) \___ \ 
+ | |__| |_| | |\  | | | |  _ <| |_| | |___| |___| |___|  _ < ___) |
+  \____\___/|_| \_| |_| |_| \_\\___/|_____|_____|_____|_| \_\____/ 
+                                                                   
+UserController
+  CreateUser
+  GetUser
+  LoginUser
+
+AccountController
+  Do we really need to do much here? And if so, what?
+
+PostController
+  CreatePost
+  GetSinglePost
+  GetAllPosts
+  UpvotePost
+  DownvotePost
+  DeletePost
+
+CategoryController
+TagController
+
+
+  ____  _____ ______     _____ ____ _____ ____  
+ / ___|| ____|  _ \ \   / /_ _/ ___| ____/ ___| 
+ \___ \|  _| | |_) \ \ / / | | |   |  _| \___ \ 
+  ___) | |___|  _ < \ V /  | | |___| |___ ___) |
+ |____/|_____|_| \_\ \_/  |___\____|_____|____/ 
+                                                
+UserServices
+AccountServices
+PostServices
+TagServices
+CategoryServices
+
+
+
+  ____   _    ____ _____ ____  
+ |  _ \ / \  / ___| ____/ ___| 
+ | |_) / _ \| |  _|  _| \___ \ 
+ |  __/ ___ \ |_| | |___ ___) |
+ |_| /_/   \_\____|_____|____/ 
+                               
+SignUpPage
+  signs up a user
+LoginPage
+  logs in a user  
+HomePage
+  welcomes the user, explains the app
+ViewPost
+  brings a post up
+
+
+
+
+
+
+
+  ___ ____  _____    _      ____   ___    _    ____  ____  
+ |_ _|  _ \| ____|  / \    | __ ) / _ \  / \  |  _ \|  _ \ 
+  | || | | |  _|   / _ \   |  _ \| | | |/ _ \ | |_) | | | |
+  | || |_| | |___ / ___ \  | |_) | |_| / ___ \|  _ <| |_| |
+ |___|____/|_____/_/   \_\ |____/ \___/_/   \_\_| \_\____/ 
+Any random postMVP stuff you come up with, throw it in over here with initials! -NZ
+
+
+
+
+
+
+
+  ____   ____ ____      _  _____ ____ _   _ 
+ / ___| / ___|  _ \    / \|_   _/ ___| | | |
+ \___ \| |   | |_) |  / _ \ | || |   | |_| |
+  ___) | |___|  _ <  / ___ \| || |___|  _  |
+ |____/ \____|_| \_\/_/   \_\_| \____|_| |_|
+                                            
+Throw code snippets here, use this as a board, whatever you want
+
+
+
+
+Notes From Andre Poppin In
+
+
+seen posts is a post mvp
+    could make that a through table from account to post   
+        store account id and post id
+
+Could order posts by when they were created
+
+
+if we had it as an array it would be exponential growth
+
+
