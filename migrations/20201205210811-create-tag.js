@@ -8,13 +8,23 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      post_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+      postId: {
+        type: DataTypes.INTEGER,
+        field: "post_id",
+        allowNull: false,
+        references: {
+          model: "post",
+          key: "id"
+        }
       },
-      category_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+      categoryId: {
+        type: DataTypes.INTEGER,
+        field: "category_id",
+        allowNull:false,
+        references: {
+          model: "category",
+          key: "id"
+        }
       },
       createdAt: {
         allowNull: false,
