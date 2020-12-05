@@ -9,20 +9,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       postId: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         field: "post_id",
         allowNull: false,
         references: {
-          model: "post",
+          model: "posts",
           key: "id"
         }
       },
       categoryId: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         field: "category_id",
         allowNull:false,
         references: {
-          model: "category",
+          model: "categories",
           key: "id"
         }
       },

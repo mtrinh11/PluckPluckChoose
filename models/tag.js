@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       field: "post_id",
       allowNull: false,
       references: {
-        model: "post",
+        model: "posts",
         key: "id"
       }
     },
