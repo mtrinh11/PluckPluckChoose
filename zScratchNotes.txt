@@ -186,3 +186,5 @@ Could order posts by when they were created
 
 
 if we had it as an array it would be exponential growth
+
+

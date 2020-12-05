@@ -31,8 +31,7 @@ const LoginUser = async (request, response) => {
             (request.body.password === user.password)
             ? response.send(payload) : response.status(401).send({message: `no dice!`})
         )
-        
-        console.log('BACKEND: UserController: LoginUser')
+        console.log('BACKEND: UserController: LoginUser --password check')
         response.send()
     }catch(error){throw error}
 }
