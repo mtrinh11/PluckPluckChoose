@@ -58,14 +58,14 @@ const DeletePost = async (request, response) => {
 const UpvotePost = async (request, response) => {
     try{
         const upvotedPost = await Post.increment( 
-            {upvotes: 1},
+            {Upvotes: 1},
             {where: {id: request.params.post_id}}
         )
         console.log('BACKEND: PostController: UpvotePost')
         response.send(upvotedPost)
     }catch(error){throw error}
 }
- 
+// ^----These can be merged into one function, with a ternary or some shid ----v
 const DownvotePost = async (request, response) => {
     try{
         const DownvotedPost = await Post.increment( 
@@ -83,7 +83,11 @@ module.exports ={
     CreatePost,
     GetSinglePost,
     GetAllPosts,
+    EditPost,
     UpvotePost,
     DownvotePost,
     DeletePost
  }
+
+
+ 
