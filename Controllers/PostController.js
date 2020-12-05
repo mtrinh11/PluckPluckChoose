@@ -29,7 +29,8 @@ const GetAllPosts = async (request, response) => {
         response.send(allPosts)
     }catch(error){throw error}
 }
- 
+
+//EditPost is used to change a post's category so it's separate from the upvote/downvote
 const EditPost = async (request, response) => {
     try{
         let postId = parseInt(request.params.post_id)
