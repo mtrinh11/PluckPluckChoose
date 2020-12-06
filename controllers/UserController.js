@@ -29,10 +29,14 @@ const LoginUser = async (request, response) => {
         }
         user && await(
             (request.body.password === user.password)
-            ? response.send(payload) : response.status(401).send({message: `no dice!`})
-        )
+            ? ( console.log('BACKEND: UserController: Login User --Login success'),
+                response.send(payload) 
+        ): (
+            console.log('BACKEND: UserController: Login User --Login failed'),
+            response.status(401).send({message: `no dice!`})
+        ))
         console.log('BACKEND: UserController: LoginUser --password check')
-        response.send()
+        
     }catch(error){throw error}
 }
  
