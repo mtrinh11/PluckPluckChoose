@@ -1,11 +1,18 @@
 'use strict';
 
-const accounts = [...Array(10)].map( (acc) => ({
-  username: faker.name.findName(),
-  user_id: Math.floor(Math.random() * 10),
+const faker = require('faker')
+let counter = 0
+
+const accounts = [...Array(10)].map( (acc) => {
+
+  let tempInsert = {
+  user_id: counter,
   createdAt: new Date(),
   updatedAt: new Date()
-}))
+}
+counter++
+return tempInsert
+})
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -18,7 +25,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-   return queryInterface.bulkinsert('accounts', accounts)
+   return queryInterface.bulkInsert('accounts', accounts)
   },
 
   down: async (queryInterface, Sequelize) => {
