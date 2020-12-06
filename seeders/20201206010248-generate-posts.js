@@ -1,5 +1,13 @@
 'use strict';
 
+const posts = [...Array(10)].map( (acc) => ({
+  username: faker.name.findName(),
+  picture: faker.image.imageUrl(),
+  account_id: Math.floor(Math.random() * 10),
+  createdAt: new Date(),
+  updatedAt: new Date()
+}))
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     /**
@@ -11,7 +19,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-  //  return queryInterface.bulkInsert()
+   return queryInterface.bulkInsert('posts', posts)
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -21,5 +29,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    return queryInterface.bulkDelete('posts')
   }
 };

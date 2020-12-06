@@ -1,5 +1,11 @@
 'use strict';
 
+const categories = [...Array(10)].map( (acc) => ({
+  name: faker.hacker.noun(),
+  createdAt: new Date(),
+  updatedAt: new Date()
+}))
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     /**
@@ -11,6 +17,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+   return queryInterface.bulkInsert('categories', categories)
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -20,5 +27,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    return queryInterface.bulkDelete('categories')
   }
 };

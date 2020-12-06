@@ -28,7 +28,8 @@
  .-/.    .-.`-'  `-/-' 
 (_/ `-._.      -._/    
     I went through this to familiarize myself with how the whole project is gonna work -NZ, 12.5.noonish
-
+  Most of the frontend and backend is done, we just need to test routes 
+  
 
 
 
@@ -156,7 +157,7 @@ CategoryServices
  |___|____/|_____/_/   \_\ |____/ \___/_/   \_\_| \_\____/ 
 Any random postMVP stuff you come up with, throw it in over here with initials! -NZ
 
-
+should comparisons be a through board? 
 
 
 
@@ -169,6 +170,21 @@ Any random postMVP stuff you come up with, throw it in over here with initials! 
  |____/ \____|_| \_\/_/   \_\_| \____|_| |_|
                                             
 Throw code snippets here, use this as a board, whatever you want
+
+
+Route Tests
+
+
+FULL CRUD ON TAG 
+  Create a tag
+    --association between a post and a Category
+  Get A tag
+    --find all posts associated with a Category
+    get all categories associated with a post
+  //UPDATE not needed because we're doing DELETE
+  //DELETE
+    delete the necessary association to delete  
+
 
 
 
