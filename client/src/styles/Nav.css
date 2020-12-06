@@ -1,0 +1,22 @@
+header nav {
+    background-color: #a35d6a;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    grid-column: span 2;
+}
+
+nav a {
+    justify-content: flex-end;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    color:black;
+}
+
+nav h1 {
+    margin-left: 30px; 
+    margin-right: 30px;
+    color:black;
+    flex-grow: 1;
+}

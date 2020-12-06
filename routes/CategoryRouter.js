@@ -1,5 +1,3 @@
-const Router = require("./PostRouter")
-
 const Router = require('express').Router()
 const controller = require('../controllers/CategoryController')
 
