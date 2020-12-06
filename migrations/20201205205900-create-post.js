@@ -14,11 +14,13 @@ module.exports = {
       },
       upvote: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 0
       },
       downvote: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 0
       },
       accountId: {
         field: 'account_id',
