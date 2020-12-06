@@ -16,7 +16,7 @@ const CreateAccount = async (request, response) => {
  
 const GetOneAccount = async (request, response) => {
     try{
-        const accountDetails = await Account.findByPk(request.params.account_id)
+        const accountDetails = await Account.findByPk(request.params.id)
         console.log('BACKEND: AccountController: GetOneAccount')
         response.send(accountDetails)
     }catch(error){throw error}
@@ -24,7 +24,7 @@ const GetOneAccount = async (request, response) => {
  
 const GetAllAccounts = async (request, response) => {
     try{
-        const allAccounts = await AccountfindAll()
+        const allAccounts = await Account.findAll()
         console.log('BACKEND: AccountController: GetAllAccounts')
         response.send(allAccounts)
     }catch(error){throw error}
