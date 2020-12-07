@@ -47,6 +47,12 @@ const GetAllCategoriesOnPost = async (request, response) => {
     } catch(error){throw error}
 }    
 
+const TagTest = async (request, response) => {
+    try{
+        console.log('BACKEND TagController, TagTest')
+        response.send({message:"This route is working"})
+    } catch(error){throw error}
+}
 
 
 
@@ -55,5 +61,6 @@ module.exports = {
     GetAllPostsByCategory,
     GetAllCategoriesOnPost,
     TagPostToCategory,
-    RemoveTagFromPost
+    RemoveTagFromPost,
+    TagTest
 }

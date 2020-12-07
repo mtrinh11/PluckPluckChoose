@@ -1,5 +1,6 @@
-const { hashPassword, passwordValid } = require('../middleware')
+const { hashPassword, passwordValid, createToken } = require('../middleware')
 const {User} = require('../models')
+
 
 const CreateUser = async (request, response) => {
     try{
@@ -19,14 +20,14 @@ const GetUser = async (request, response) => {
     }catch(error){throw error}
 }
  
-const LoginUser = async (request, response) => {
+const LoginUser = async (request, response) => { 
     try{
         const user = await User.findOne({
             where: {email: request.body.email},
             raw: true//added raw: true so we return the user with raw values, we dont need the model definitions for what we're doing here.
         })
         console.log('BACKEND: UserController: LoginUser --email received', user)
-        if (user && (await passwordValid(require.body.password, user.passwordDigest))) {
+        if (user && (await passwordValid(request.body.password, user.passwordDigest))) {
             let payload = {//change payload from const to let
                 _id: user.id,//undersore may be unnecessary
                 username: user.username
