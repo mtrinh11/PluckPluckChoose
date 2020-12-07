@@ -1,7 +1,6 @@
 'use strict';
 
-const faker = require('faker')
-const {User, sequelize} = require('../models')
+const {Post, Category, sequelize} = require('../models')
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -14,18 +13,22 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-   const accounts = await Promise.all(
-      [...Array(10)].map(async (_) => {
-          let user = await User.findOne({order: sequelize.random(), raw: true})
-          return {
-          user_id: user.id,
+
+   const tags = await Promise.all(
+    [...Array(10)].map(async (_) => {
+        let post = await Post.findOne({order: sequelize.random(), raw: true})
+        let category = await Category.findOne({order: sequelize.random(), raw: true})
+        return {
+          post_id: post.id,
+          category_id: category.id,
           createdAt: new Date(),
           updatedAt: new Date()
-          }
-      })
-    )
-   await queryInterface.bulkInsert('accounts', accounts)
-   return
+        }
+    })
+  )
+
+    await queryInterface.bulkInsert('tags', tags)
+    return 
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -35,6 +38,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    return queryInterface.bulkDelete('accounts')
+    return queryInterface.bulkDelete('tags')
   }
 };

@@ -28,9 +28,10 @@
  .-/.    .-.`-'  `-/-' 
 (_/ `-._.      -._/    
     I went through this to familiarize myself with how the whole project is gonna work -NZ, 12.5.noonish
-  Most of the frontend and backend is done, we just need to test routes 
   
+  BackendRoutes have been mostly tested, all that's left is to test the tags -NZ 12.6 EOD
 
+  I set up TagController and TagRouter, but it needs to be tested with the seed -NZ 12.7 AM
 
 
 

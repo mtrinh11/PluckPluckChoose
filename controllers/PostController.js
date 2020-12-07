@@ -59,7 +59,7 @@ const DeletePost = async (request, response) => {
 const UpvotePost = async (request, response) => {
     try{
         const upvotedPost = await Post.increment( 
-            {Upvotes: 1},
+            {upvote: 1},
             {where: {id: request.params.post_id}}
         )
         console.log('BACKEND: PostController: UpvotePost')
@@ -69,12 +69,12 @@ const UpvotePost = async (request, response) => {
 // ^----These can be merged into one function, with a ternary or some shid ----v
 const DownvotePost = async (request, response) => {
     try{
-        const DownvotedPost = await Post.increment( 
-            {Downvotes: 1},
+        const downvotedPost = await Post.increment( 
+            {downvote: 1},
             {where: {id: request.params.post_id}}
         )
         console.log('BACKEND: PostController: DownvotePost')
-        response.send(DownvotedPost)
+        response.send(downvotedPost)
     }catch(error){throw error}
 }
  
