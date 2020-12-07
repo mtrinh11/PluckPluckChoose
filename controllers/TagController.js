@@ -6,16 +6,18 @@ const TagPostToCategory = async (request, response) => {
         const categoryId = request.body.categoryId
         const post = await Post.findByPk(postId)
         const category = await Category.findByPk(categoryId)
-        console.log(typeof(post.dataValues.id),"this is posts")
+        console.log('TagPostToCategory --Posts:', typeof(post.dataValues.id))
         let newTag = await Tag.create({
             post_id: parseInt(post.dataValues.id),
             postId: parseInt(post.dataValues.id),
             category_id: parseInt(category.dataValues.id),
             categoryId: parseInt(category.dataValues.id)
         })
-        // console.log(post_id, postId, category_id, categoryId),
-
-        console.log(newTag.postId, newTag.categoryId,"WHERE AM I")
+        console.log(
+            'TagPostToCategory --newTag postId', 
+            newTag.postId, 
+            'TagPostToCategory --newTag categoryId', 
+            newTag.categoryId)
         console.log('BACKEND: TagController: TagPostToCategory')
         response.send(newTag)
         //I'm not sure if this works because I want to grab two params, and I'm doing one request.body
@@ -58,15 +60,17 @@ const GetAllCategoriesOnPost = async (request, response) => {
         console.log('BACKEND: TagController: GetAllCategoriesOnPost')
         response.send(allTagsOnPost)
     } catch(error){throw error}
-}    
-
-
-
+}
 
 
 module.exports = {
     GetAllPostsByCategory,
     GetAllCategoriesOnPost,
     TagPostToCategory,
+<<<<<<< HEAD
+    RemoveTagFromPost
+}
+=======
     RemoveTagFromPost,
 }
+>>>>>>> 9a08cdef3114422f715f208c7c582236a9a89644

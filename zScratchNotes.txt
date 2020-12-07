@@ -194,10 +194,20 @@ String up front to back
 
 
 
+  ___ ____ ____  _   _ _____ ____  
+ |_ _/ ___/ ___|| | | | ____/ ___| 
+  | |\___ \___ \| | | |  _| \___ \ 
+  | | ___) |__) | |_| | |___ ___) |
+ |___|____/____/ \___/|_____|____/ 
+                                   
+fixed bug in routes, server started up
+  node server said max listeners exceeded warning
+  possible event emitter memory leak detected 
+  11 exit listeners added to [Bus]
 
 
 
-Route Tests
+
 
 
 FULL CRUD ON TAG 
