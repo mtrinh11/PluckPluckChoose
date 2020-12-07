@@ -6,8 +6,7 @@ Router.post('/tagIt', controller.TagPostToCategory)
 //DELETE
 Router.delete('/untagIt', controller.RemoveTagFromPost)
 //READ
-Router.get('/:category_id', controller.GetAllPostsByCategory)
-Router.get('/:post_id', controller.GetAllCategoriesOnPost)
-Router.get('/test', controller.TagTest)
+Router.get('/category/:category_id', controller.GetAllCategoriesOnPost)
+Router.get('/post/:post_id', controller.GetAllPostsByCategory)
 
 module.exports = Router
