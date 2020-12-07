@@ -4,9 +4,9 @@ const controller = require('../controllers/TagController')
 //CREATE
 Router.post('/tagIt', controller.TagPostToCategory)
 //DELETE
-Router.delete('/untagIt', controller.RemoveTagFromPost)
+Router.delete('/untagIt/:tag_id', controller.RemoveTagFromPost)
 //READ
-Router.get('/category/:category_id', controller.GetAllCategoriesOnPost)
-Router.get('/post/:post_id', controller.GetAllPostsByCategory)
+Router.get('/categories/:post_id', controller.GetAllCategoriesOnPost)
+Router.get('/posts/:category_id', controller.GetAllPostsByCategory)
 
 module.exports = Router
