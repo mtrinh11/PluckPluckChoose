@@ -29,6 +29,7 @@ const LoginUser = async (request, response) => {
         }
         user && await(
 <<<<<<< HEAD
+<<<<<<< HEAD
             (request.body.password === user.password)
             ? ( console.log('BACKEND: UserController: Login User --Login success'),
                 response.send(payload) 
@@ -39,10 +40,15 @@ const LoginUser = async (request, response) => {
         console.log('BACKEND: UserController: LoginUser --password check')
         
 =======
+=======
+>>>>>>> 7bdb6c060368c11d3a6f74338db608e827bf7582
             (request.body.password_digest === user.password_digest)
             ? response.send(payload) : response.status(401).send({message: `no dice!`})
         )
         console.log('BACKEND: UserController: LoginUser --password check')
+<<<<<<< HEAD
+>>>>>>> 7bdb6c060368c11d3a6f74338db608e827bf7582
+=======
 >>>>>>> 7bdb6c060368c11d3a6f74338db608e827bf7582
     }catch(error){throw error}
 }
