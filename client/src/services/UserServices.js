@@ -12,7 +12,7 @@ export const __LoginUser = async(userData) => {
 
 export const __CheckSession = async () => {
     try {
-      const res = await ApiClient.get('/users/refresh/session')
+      const res = await ApiClient.get('/user/session')
       return res.data
     } catch (error) {
       throw error
