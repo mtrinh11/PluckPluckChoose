@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import {__LoginUser} from '../services/UserServices'
 
 export default (props) => {
 
@@ -8,15 +8,15 @@ export default (props) => {
     const [password, setPassword] = useState('');
     const [formError, setFormError] = useState(false)
     
+
     const handleSubmit = async(e) => {
         e.preventDefault()
         try {
-            // const loginData = await __LoginUser({
-            //     email: email,
-            //     password: password,
-            // })
-            // props.history.push('/viewprofile')
-            // props.toggleAuthenticated(true, loginData.id)
+            const loginData = await __LoginUser({
+                email: email,
+                password: password,
+            })
+            props.toggleAuthenticated(true, loginData.id, () => (props.history.push('/')))
         } catch (error) {
             setFormError(true)
         }
@@ -49,6 +49,7 @@ export default (props) => {
                         /> 
                     </div>
                     <button style={{margin: '10px'}}>Login</button>
+                    {formError ? <p>Error While Logging In</p> : <p></p>}
                 </form>
             </div>   
         </div>

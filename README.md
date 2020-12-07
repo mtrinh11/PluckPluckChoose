@@ -33,7 +33,7 @@ React is used with hooks to select whether an animal is cute or not
 Node is used throughout the project as the code for it. 
 
 
-## Entiy-Relationship Diagram
+## Entity-Relationship Diagram
 
 ![ERD of Pluck Pluck Choose](./ReadmeImages/ERD.png "ERD of Pluck Pluck Choose")
 
