@@ -14,10 +14,14 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+          isEmail: true
+        }
       },
-      password_digest: {
+      passwordDigest: {
         type: Sequelize.STRING,
+        field: 'password_digest',
         allowNull: false
       },
       createdAt: {
