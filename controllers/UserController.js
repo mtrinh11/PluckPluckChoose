@@ -53,6 +53,8 @@ const SessionStatus = async (req, res) => {
       res.send({ user, status: 'OK' })
     } catch (error) {
       throw error
+    } finally {
+        process.exit()
     }
   }
 
