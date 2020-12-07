@@ -3,16 +3,10 @@ const {User} = require('../models')
 
 const CreateUser = async (request, response) => {
     try{
-<<<<<<< HEAD
-        const body = request.body
-        const user = await User.create(body)
-        console.log('BACKEND: UserController: CreateUser')
-=======
         const { username, email, password } = request.body
         const passwordDigest = await hashPassword(password)
         const user = await User.create({ username, email, passwordDigest})
         console.log('BACKEND: UserController: User')
->>>>>>> 9b54ff02c7db6a8ff236523964857f5be987e17d
         response.send(user)
     }catch(error){throw error}
 }
@@ -40,23 +34,11 @@ const LoginUser = async (request, response) => {
             let token = createToken(payload)
             return response.send({user, token})
         }
-<<<<<<< HEAD
-        user && await(
-            (request.body.password_digest === user.password_digest)
-            ? ( console.log('BACKEND: UserController: Login User --Login success'),
-                response.send(payload) 
-            ): (
-                console.log('BACKEND: UserController: Login User --Login failed'),
-                response.status(401).send({message: `no dice!`})
-            ))
-            console.log('BACKEND: UserController: LoginUser --password check')
-=======
         // user && await(
         //     (request.body.password_digest === user.password_digest)
         //     ? response.send(payload) : response.status(401).send({message: `no dice!`})
         // )
         console.log('BACKEND: UserController: LoginUser --password check')
->>>>>>> 9b54ff02c7db6a8ff236523964857f5be987e17d
     }catch(error){throw error}
 }
 
