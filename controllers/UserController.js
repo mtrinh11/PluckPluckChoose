@@ -27,7 +27,6 @@ const LoginUser = async (request, response) => {
         })
         console.log('BACKEND: UserController: LoginUser --email received', user)
         if (user && (await passwordValid(require.body.password, user.passwordDigest))) {
-
             let payload = {//change payload from const to let
                 _id: user.id,//undersore may be unnecessary
                 username: user.username
@@ -54,7 +53,6 @@ const SessionStatus = async (req, res) => {
       throw error
     }
   }
-
 
 module.exports = {
     CreateUser,
