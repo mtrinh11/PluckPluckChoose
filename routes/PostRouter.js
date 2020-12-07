@@ -6,6 +6,8 @@ Router.post('/create', controller.CreatePost)
 //READ
 Router.get('/:post_id', controller.GetSinglePost)
 Router.get('/all/posts', controller.GetAllPosts)
+//change get all posts to get "25" posts. otherwise the page could crash 
+// if there are say 10,000 posts
 //UPDATE
 Router.put('/edit/:post_id', controller.EditPost)
 Router.put('/upvote/:post_id', controller.UpvotePost)
