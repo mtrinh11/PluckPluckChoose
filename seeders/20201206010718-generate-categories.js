@@ -1,5 +1,7 @@
 'use strict';
 
+const faker = require('faker')
+
 const categories = [...Array(10)].map( (acc) => ({
   name: faker.hacker.noun(),
   createdAt: new Date(),

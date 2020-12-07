@@ -1,5 +1,7 @@
 'use strict';
 
+const faker = require('faker')
+
 const posts = [...Array(10)].map( (acc) => ({
   username: faker.name.findName(),
   picture: faker.image.imageUrl(),
