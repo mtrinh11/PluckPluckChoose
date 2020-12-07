@@ -47,14 +47,15 @@ const LoginUser = async (request, response) => {
 const SessionStatus = async (req, res) => {
     try {
       const { token } = res.locals
-      const user = await User.findByPk(token.id, {
-        attributes: ['id', 'name', 'email'] // Find a user by the id encoded in the json web token, only include the id, name and email fields
+      const user = await User.findByPk(token._id, {
+        attributes: ['id', 'username', 'email'] // Find a user by the id encoded in the json web token, only include the id, name and email fields
       })
       res.send({ user, status: 'OK' })
     } catch (error) {
-      throw error
+        res.status(401).send({message: 'invalid session'})
+        throw error
     }
-  }
+}
 
 module.exports = {
     CreateUser,

@@ -16,11 +16,11 @@ export default (props) => {
         e.preventDefault()
         console.log('throw')
         try {
-            const loginData = await __LoginUser({
+            const res = await __LoginUser({
                 email: email,
                 password: password,
             })
-            props.toggleAuthenticated(true, loginData.data.user, () => (props.history.push('/profile')))
+            props.toggleAuthenticated(true, res, () => (props.history.push('/profile')))
         } catch (error) {
             setFormError(true)
             throw error
