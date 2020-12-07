@@ -4,7 +4,7 @@ const CreateUser = async (request, response) => {
     try{
         const body = request.body
         const user = await User.create(body)
-        console.log('BACKEND: UserController: User')
+        console.log('BACKEND: UserController: CreateUser')
         response.send(user)
     }catch(error){throw error}
 }
@@ -28,18 +28,14 @@ const LoginUser = async (request, response) => {
             username: user.username
         }
         user && await(
-            (request.body.password === user.password)
+            (request.body.password_digest === user.password_digest)
             ? ( console.log('BACKEND: UserController: Login User --Login success'),
                 response.send(payload) 
-        ): (
-            console.log('BACKEND: UserController: Login User --Login failed'),
-            response.status(401).send({message: `no dice!`})
-        ))
-        console.log('BACKEND: UserController: LoginUser --password check')
-            (request.body.password_digest === user.password_digest)
-            ? response.send(payload) : response.status(401).send({message: `no dice!`})
-        console.log('BACKEND: UserController: LoginUser --password check')
-
+            ): (
+                console.log('BACKEND: UserController: Login User --Login failed'),
+                response.status(401).send({message: `no dice!`})
+            ))
+            console.log('BACKEND: UserController: LoginUser --password check')
     }catch(error){throw error}
 
  
