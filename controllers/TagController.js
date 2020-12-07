@@ -8,9 +8,9 @@ const TagPostToCategory = async (request, response) => {
         const category = await Category.findByPk(categoryId)
         console.log(typeof(post.dataValues.id),"this is posts")
         let newTag = await Tag.create({
-            // post_id: parseInt(post.dataValues.id),
+            post_id: parseInt(post.dataValues.id),
             postId: parseInt(post.dataValues.id),
-            // category_id: parseInt(category.dataValues.id),
+            category_id: parseInt(category.dataValues.id),
             categoryId: parseInt(category.dataValues.id)
         })
         // console.log(post_id, postId, category_id, categoryId),
