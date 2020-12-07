@@ -1,9 +1,17 @@
-const {Tag} = require('../models')
+const {Tag, Post, Category} = require('../models')
+
 
 const TagPostToCategory = async (request, response) => {
     try{
-        const categoryAndPost = request.body
-        const newTag = await Tag.create(categoryAndPost)
+        
+        const postId = request.body.postId
+        const categoryId = request.body.categoryId
+        const post = await Post.findByPk(postId)
+        const category = await Category.findByPk(categoryId)
+        const newTag = await Tag.create({
+            post_id: post.id,
+            category_id: category.id
+        })
         console.log('BACKEND: TagController: TagPostToCategory')
         response.send(newTag)
         //I'm not sure if this works because I want to grab two params, and I'm doing one request.body
@@ -45,7 +53,7 @@ const GetAllCategoriesOnPost = async (request, response) => {
         console.log('BACKEND: TagController: GetAllCategoriesOnPost')
         response.send(allTagsOnPost)
     } catch(error){throw error}
-}    
+}
 
 const TagTest = async (request, response) => {
     try{
@@ -53,11 +61,7 @@ const TagTest = async (request, response) => {
         response.send({message:"This route is working"})
     } catch(error){throw error}
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 8535e9ccace17ffda6aed4f553361c0969beff5d
-
+        
 
 
 module.exports = {
