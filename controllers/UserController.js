@@ -35,6 +35,7 @@ const LoginUser = async (request, response) => {
             let token = createToken(payload)
             return response.send({user, token})
         }
+        return (response.status(401).send({message: `no dice!`}))
         // user && await(
         //     (request.body.password_digest === user.password_digest)
         //     ? response.send(payload) : response.status(401).send({message: `no dice!`})
