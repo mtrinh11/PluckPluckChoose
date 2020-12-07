@@ -171,6 +171,30 @@ should comparisons be a through board?
                                             
 Throw code snippets here, use this as a board, whatever you want
 
+let counter = 0
+const accounts = [...Array(10)].map((account)=> {
+  let tempInsert = {
+    user_id: counter,
+    createdAt: newDate(),
+    updatedAt: newDate()
+  }
+  counter++
+  return tempInsert
+})
+
+
+12/7 AM GAMEPLAN
+Nico: talk with instructors to figure out git issues
+      TagController/Router working/tested
+      TEST all
+Schuy: Auth
+Minh: Dial in Seeders/work on services
+String up front to back
+
+
+
+
+
 
 Route Tests
 
