@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
 
 import {__CreateUser} from '../services/UserServices';
 import{__CreateAccount} from '../services/AccountServices';
@@ -24,27 +21,22 @@ export default (props) => {
     const [username, setUsername] = useState('')
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
-    const[accountTier, setAccountTier] = useState('Bronze')
-
-    const [anchorEl, setAnchorEl] = useState(null);
-
 
 const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-        // let userFormData = {
-        //     name: username,
-        //     email: email,
-        //     password: password
-        // }
-        // let newUser = await __CreateUser(userFormData)
+        let userFormData = {
+            username: username,
+            email: email,
+            password: password
+        }
+        let newUser = await __CreateUser(userFormData)
 
-        // let accountFormData = {
-        //     tier: accountTier,
-        //     user_id: newUser.id,
-        // }
-        // await __CreateAccount(accountFormData)
-        // props.history.push('/login')
+        let accountFormData = {
+            user_id: newUser.id,
+        }
+        await __CreateAccount(accountFormData)
+        props.history.push('/login')
     } catch (error) {
         
     }
