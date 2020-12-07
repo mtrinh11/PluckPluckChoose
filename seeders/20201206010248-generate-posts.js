@@ -2,10 +2,13 @@
 
 const faker = require('faker')
 
+
 const posts = [...Array(10)].map( (acc) => ({
-  username: faker.name.findName(),
   picture: faker.image.imageUrl(),
-  account_id: Math.floor(Math.random() * 10),
+  account_id: 154,
+  //  Math.floor(Math.random() * 9) ,
+  upvote: Math.floor(Math.random() * 10),
+  downvote: Math.floor(Math.random() * 10),
   createdAt: new Date(),
   updatedAt: new Date()
 }))
