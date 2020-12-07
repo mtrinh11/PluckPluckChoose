@@ -2,7 +2,7 @@ import ApiClient from './ApiServices';
 
 export const __GetAccount = async() => {
     try {
-
+        const res = ApiClient.post('')
     } catch (error) {
         throw error
     }
