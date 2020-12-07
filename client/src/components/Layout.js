@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from './Nav';
 import '../styles/Layout.css'
 
-export default ({authenticate, currentUser, children, toggleAuthenticated}) => (
+export default ({authenticate, currentUser, children}) => (
     <div className='layout'>
         <Nav
         authenticate={authenticate}

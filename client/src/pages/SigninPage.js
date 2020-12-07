@@ -8,20 +8,25 @@ export default (props) => {
     const [password, setPassword] = useState('');
     const [formError, setFormError] = useState(false)
     
+    useEffect(() => {
+
+    }, [formError])
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+        console.log('throw')
         try {
             const loginData = await __LoginUser({
                 email: email,
                 password: password,
             })
-            props.toggleAuthenticated(true, loginData.id, () => (props.history.push('/')))
+            props.toggleAuthenticated(true, loginData.data.user, () => (props.history.push('/profile')))
         } catch (error) {
             setFormError(true)
+            throw error
         }
     }
-
+    console.log(formError)
     return (
         <div style={{backgroundColor: 'white', padding: '50px', borderRadius:'20px'}} >
             <div className="row">

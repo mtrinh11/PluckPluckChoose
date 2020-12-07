@@ -67,10 +67,5 @@ module.exports = {
     GetAllPostsByCategory,
     GetAllCategoriesOnPost,
     TagPostToCategory,
-<<<<<<< HEAD
     RemoveTagFromPost
 }
-=======
-    RemoveTagFromPost,
-}
->>>>>>> 9a08cdef3114422f715f208c7c582236a9a89644
