@@ -3,8 +3,7 @@ import {NavLink} from 'react-router-dom';
 import '../styles/Nav.css';
 
 
-export default ({authenticate, currentUser, history}) => {
-    console.log(authenticate, currentUser)
+export default ({authenticate, currentUser}) => {
     return  authenticate && currentUser ? (
         <header>
             <nav>

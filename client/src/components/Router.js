@@ -17,14 +17,10 @@ export default function Router(props) {
     const [currentUser, setCurrentUser] = useState(null);
     const [pageLoading, setPageLoading] = useState(true);
 
-    // const [authenticate, setAuthenticate] = useState(true);
-    // const [currentUser, setCurrentUser] = useState(null);
-    // const [pageLoading, setPageLoading] = useState(false);
-
     useEffect(() => {
         verifyTokenValid();
         setPageLoading(false);
-    }, [pageLoading, authenticate, currentUser])
+    }, [pageLoading, authenticate])
 
     const toggleAuthenticated = (value, user, done) => {
         setAuthenticate(value);
@@ -36,10 +32,9 @@ export default function Router(props) {
         const token = localStorage.getItem('token')
         if (token) {
           try {
-            const session = await __CheckSession()
+            const session = await __CheckSession(token)
             setCurrentUser(session.user)
             setAuthenticate(true)
-            props.history.push('/')
           } catch (error) {
             setCurrentUser(null)
             setAuthenticate(false)
@@ -54,12 +49,8 @@ export default function Router(props) {
                 <Route 
                     exact
                     path = "/"
-                    component = {() => (
-                        <Layout
-                            currentUser={currentUser}
-                            authenticate={authenticate}
-                            {...props}
-                        >
+                    component = {(props) => (
+                        <Layout>
                             <HomePage/> 
                         </Layout>
                     )}
@@ -68,7 +59,9 @@ export default function Router(props) {
                     exact 
                     path = "/login"
                     component = {(props) => (
-                        <Layout>
+                        <Layout
+                            {...props}
+                        >
                             <SigninPage 
                                 toggleAuthenticated = {toggleAuthenticated}
                                 {...props}
