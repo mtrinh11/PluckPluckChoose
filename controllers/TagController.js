@@ -1,23 +1,28 @@
-const {Tag, Post, Category} = require('../models')
-
+const {Tag, Post, Category } = require('../models')
 
 const TagPostToCategory = async (request, response) => {
     try{
-        
         const postId = request.body.postId
         const categoryId = request.body.categoryId
         const post = await Post.findByPk(postId)
         const category = await Category.findByPk(categoryId)
-        const newTag = await Tag.create({
-            post_id: post.id,
-            category_id: category.id
+        console.log('TagPostToCategory --Posts:', typeof(post.dataValues.id))
+        let newTag = await Tag.create({
+            post_id: parseInt(post.dataValues.id),
+            postId: parseInt(post.dataValues.id),
+            category_id: parseInt(category.dataValues.id),
+            categoryId: parseInt(category.dataValues.id)
         })
+        // console.log(post_id, postId, category_id, categoryId),
+
+        console.log('TagPostToCategory newTag postId', newTag.postId, 'TagPostToCategory newTag categoryId', newTag.categoryId)
         console.log('BACKEND: TagController: TagPostToCategory')
         response.send(newTag)
         //I'm not sure if this works because I want to grab two params, and I'm doing one request.body
         //originally I had two request.body's, but that seemed weird
         //I'm not sure how to create the association in the through table
-    } catch(error){throw error}
+    } catch(error)
+    {throw error}
 }
 
 const RemoveTagFromPost = async (request, response) => {
@@ -55,6 +60,7 @@ const GetAllCategoriesOnPost = async (request, response) => {
     } catch(error){throw error}
 }
 
+<<<<<<< HEAD
 const TagTest = async (request, response) => {
     try{
         console.log('BACKEND TagController, TagTest')
@@ -62,6 +68,10 @@ const TagTest = async (request, response) => {
     } catch(error){throw error}
 }
         
+=======
+
+
+>>>>>>> ee399acdb7c58b109f6bde19f6fbde0bc09cbebd
 
 
 module.exports = {
@@ -69,5 +79,4 @@ module.exports = {
     GetAllCategoriesOnPost,
     TagPostToCategory,
     RemoveTagFromPost,
-    TagTest
 }
