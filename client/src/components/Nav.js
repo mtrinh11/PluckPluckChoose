@@ -3,21 +3,18 @@ import {NavLink} from 'react-router-dom';
 import '../styles/Nav.css';
 
 
-export default ({authenticate, currentUser, toggleAuthenticated}) => {
+export default ({authenticate, currentUser}) => {
     console.log(authenticate, currentUser)
     return  authenticate && currentUser ? (
         <header>
             <nav>
                 <NavLink
                 to="/"
-                onClick={() => {
-                    toggleAuthenticated(false, null)
-                    localStorage.clear()
-                }}
+                onClick={() => { localStorage.clear() }}
                 >
                 <h3>Sign Out</h3>
                 </NavLink>
-                <h1> <a href='/profile'>Netflux</a></h1>
+                <h1> <a href='/profile'>Pluck Pluck Choose</a></h1>
             </nav>
         </header>
         ) : (

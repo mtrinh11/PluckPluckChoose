@@ -33,23 +33,23 @@ React is used with hooks to select whether an animal is cute or not
 Node is used throughout the project as the code for it. 
 
 
-### There are four primary models
+## Entity-Relationship Diagram
 
 ![ERD of Pluck Pluck Choose](./ReadmeImages/ERD.png "ERD of Pluck Pluck Choose")
 
-## Account
+### Account
 An account has 
 - Uploads
 - Seen Posts (so as not to repeat views)
 
-# Post (animal)
+### Post (animal)
 A Post has an
 - Picture
 - Upvotes
 - Downvotes
 - Category Id
 
-# Category
+### Category
 A Category has a name and nothing else.
 It's primarily used as a filtration system for the user, so that if there are different kinds of posts or animals, they can sort by each one.
 
