@@ -56,48 +56,49 @@ export default function Router(props) {
                     path = "/"
                     component = {() => (
                         <Layout
-                            toggleAuthenticated = {toggleAuthenticated}
+                            currentUser={currentUser}
+                            authenticate={authenticate}
                             {...props}
                         >
                             <HomePage/> 
                         </Layout>
                     )}
                 />
+                <Route 
+                    exact 
+                    path = "/login"
+                    component = {(props) => (
+                        <Layout>
+                            <SigninPage 
+                                toggleAuthenticated = {toggleAuthenticated}
+                                {...props}
+                            />
+                        </Layout>
+                    )}
+                />
+                <Route 
+                    exact 
+                    path = "/register"
+                    component = {(props) => (
+                        <Layout>
+                            <SignupPage {...props} /> 
+                        </Layout>
+                    )}
+                />
+                <ProtectedRoute 
+                    authenticated={authenticate}
+                    exact 
+                    path = "/profile"
+                    component = {(props) => (
+                        <Layout
+                            currentUser={currentUser}
+                            authenticate={authenticate}
+                        >
+                            <Profile />
+                        </Layout>
+                    )}
+                />
             </Switch>
-            <Route 
-                exact 
-                path = "/login"
-                component = {(props) => (
-                    <Layout>
-                        <SigninPage 
-                            toggleAuthenticated = {toggleAuthenticated}
-                            {...props}
-                        />
-                    </Layout>
-                )}
-            />
-            <Route 
-                exact 
-                path = "/register"
-                component = {(props) => (
-                    <Layout>
-                        <SignupPage {...props} /> 
-                    </Layout>
-                )}
-            />
-            <ProtectedRoute 
-                authenticated={authenticate}
-                exact 
-                path = "/profile"
-                component = {(props) => (
-                    <Layout
-                        currentUser={currentUser}
-                        authenticate={authenticate}
-                    >
-                        <Profile />
-                    </Layout>
-                )}
-            />
         </main>
     )
 }

@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import '../styles/Nav.css';
 
 
-export default ({authenticate, currentUser}) => {
+export default ({authenticate, currentUser, history}) => {
     console.log(authenticate, currentUser)
     return  authenticate && currentUser ? (
         <header>
@@ -14,7 +14,7 @@ export default ({authenticate, currentUser}) => {
                 >
                 <h3>Sign Out</h3>
                 </NavLink>
-                <h1> <a href='/profile'>Pluck Pluck Choose</a></h1>
+                <h1><NavLink to="/profile">Pluck Pluck Choose</NavLink></h1>
             </nav>
         </header>
         ) : (
