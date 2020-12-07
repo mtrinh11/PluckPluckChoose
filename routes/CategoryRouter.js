@@ -2,10 +2,10 @@ const Router = require('express').Router()
 const controller = require('../controllers/CategoryController')
 
 Router.post('/create', controller.CreateCategory)
-Router.get('/:categoryid', controller.GetCategory)
+Router.get('/:categoryId', controller.GetCategory)
 Router.get('/all/categories', controller.GetAllCategories)
-Router.put('/edit/:categoryid', controller.EditCategory)
-Router.delete('/delete/:categoryid', controller.DeleteCategory)
+Router.put('/edit/:categoryId', controller.EditCategory)
+Router.delete('/delete/:categoryId', controller.DeleteCategory)
 
 
 

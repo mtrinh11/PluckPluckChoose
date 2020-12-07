@@ -1,7 +1,7 @@
 'use strict';
 
 const faker = require('faker')
-let counter = 0
+let counter = 154
 
 const accounts = [...Array(10)].map( (acc) => {
 

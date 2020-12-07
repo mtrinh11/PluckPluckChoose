@@ -13,8 +13,9 @@ const CreateCategory = async (request, response) => {
 
 const GetCategory = async (request, response) => {
     try{
-        let oneCategory = await Category.findByPk(request.params.category_id)
+        let oneCategory = await Category.findByPk(request.params.categoryId)
         console.log('BACKEND: CategoryController GetCategory')
+        //throw error in a ternary  or something  if category does not exist
         response.send(oneCategory)
     }catch(error){throw error}
 }
@@ -29,7 +30,7 @@ const GetAllCategories = async (request, response) => {
 
 const EditCategory = async (request, response) => {
     try{
-        let categoryId = parseInt(request.params.category_id)
+        let categoryId = parseInt(request.params.categoryId)
         let updatedDetails = request.body
         let editedCategory = await Category.update(updatedDetails,{
             where: {
@@ -43,7 +44,7 @@ const EditCategory = async (request, response) => {
 
 const DeleteCategory = async (request, response) => {
     try{
-        let categoryId = parseInt(request.params.category_id)
+        let categoryId = parseInt(request.params.categoryId)
         await Category.destroy({
             where: {
                 id: categoryId
