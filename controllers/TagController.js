@@ -13,9 +13,11 @@ const TagPostToCategory = async (request, response) => {
             category_id: parseInt(category.dataValues.id),
             categoryId: parseInt(category.dataValues.id)
         })
-        // console.log(post_id, postId, category_id, categoryId),
-
-        console.log('TagPostToCategory newTag postId', newTag.postId, 'TagPostToCategory newTag categoryId', newTag.categoryId)
+        console.log(
+            'TagPostToCategory --newTag postId', 
+            newTag.postId, 
+            'TagPostToCategory --newTag categoryId', 
+            newTag.categoryId)
         console.log('BACKEND: TagController: TagPostToCategory')
         response.send(newTag)
         //I'm not sure if this works because I want to grab two params, and I'm doing one request.body
@@ -60,23 +62,10 @@ const GetAllCategoriesOnPost = async (request, response) => {
     } catch(error){throw error}
 }
 
-<<<<<<< HEAD
-const TagTest = async (request, response) => {
-    try{
-        console.log('BACKEND TagController, TagTest')
-        response.send({message:"This route is working"})
-    } catch(error){throw error}
-}
-        
-=======
-
-
->>>>>>> ee399acdb7c58b109f6bde19f6fbde0bc09cbebd
-
 
 module.exports = {
     GetAllPostsByCategory,
     GetAllCategoriesOnPost,
     TagPostToCategory,
-    RemoveTagFromPost,
+    RemoveTagFromPost
 }
