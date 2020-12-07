@@ -7,7 +7,6 @@ export default ({authenticate, currentUser, children, toggleAuthenticated}) => (
         <Nav
         authenticate={authenticate}
         currentUser={currentUser}
-        toggleAuthenticated={toggleAuthenticated}
         />
         <div style={{display:"flex", height: "1000%vh", width: "100%vh", flexGrow: 1, alignItems: "center", justifyContent: 'center'}}>
             {children}
