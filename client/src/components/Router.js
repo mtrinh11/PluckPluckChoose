@@ -8,6 +8,8 @@ import HomePage from '../pages/HomePage';
 import SigninPage from '../pages/SigninPage';
 import SignupPage from '../pages/SignupPage';
 import Profile from '../pages/Profile'
+import CreatePost from '../pages/CreatePost';
+import ManagePosts from '../pages/ManagePosts'
 
 import { __CheckSession } from '../services/UserServices'
 
@@ -24,7 +26,7 @@ export default function Router(props) {
 
     const toggleAuthenticated = (value, user, done) => {
         setAuthenticate(value);
-        setCurrentUser(user);
+        setCurrentUser(user.data.user);
         done();
     }
 
@@ -42,54 +44,86 @@ export default function Router(props) {
           }
         }
     }
-
     return (
-            <Switch>
-                <Route 
-                    exact
-                    path = "/"
-                    component = {(props) => (
-                        <Layout>
-                            <HomePage/> 
-                        </Layout>
-                    )}
-                />
-                <Route 
-                    exact 
-                    path = "/login"
-                    component = {(props) => (
-                        <Layout
-                            {...props}
-                        >
-                            <SigninPage 
-                                toggleAuthenticated = {toggleAuthenticated}
+
+                <Switch>  
+                    <Route 
+                        exact
+                        path = "/"
+                        component = {(props) => (
+                            <Layout>
+                                <HomePage/> 
+                            </Layout>
+                        )}
+                    />
+                    <Route 
+                        exact 
+                        path = "/login"
+                        component = {(props) => (
+                            <Layout
                                 {...props}
-                            />
-                        </Layout>
-                    )}
-                />
-                <Route 
-                    exact 
-                    path = "/register"
-                    component = {(props) => (
-                        <Layout>
-                            <SignupPage {...props} /> 
-                        </Layout>
-                    )}
-                />
-                <ProtectedRoute 
-                    authenticated={authenticate}
-                    exact 
-                    path = "/profile"
-                    component = {(props) => (
-                        <Layout
-                            currentUser={currentUser}
-                            authenticate={authenticate}
-                        >
-                            <Profile />
-                        </Layout>
-                    )}
-                />
-            </Switch>
+                            >
+                                <SigninPage 
+                                    toggleAuthenticated = {toggleAuthenticated}
+                                    {...props}
+                                />
+                            </Layout>
+                        )}
+                    />
+                    <Route 
+                        exact 
+                        path = "/register"
+                        component = {(props) => (
+                            <Layout>
+                                <SignupPage {...props} /> 
+                            </Layout>
+                        )}
+                    />
+                    <ProtectedRoute 
+                        authenticated={authenticate}
+                        exact 
+                        path = "/profile"
+                        component = {(props) => (
+                            <Layout
+                                currentUser={currentUser}
+                                authenticate={authenticate}
+                            >
+                                <Profile />
+                            </Layout>
+                        )}
+                    />
+                    <ProtectedRoute 
+                        authenticated={authenticate}
+                        exact 
+                        path = "/profile/createpost"
+                        component = {(props) => (
+                            <Layout
+                                currentUser={currentUser}
+                                authenticate={authenticate}
+                            >
+                                <CreatePost 
+                                    currentUser = {currentUser}
+                                    {...props}
+                                />
+                            </Layout>
+                        )}
+                    />
+                    <ProtectedRoute 
+                        authenticated={authenticate}
+                        exact 
+                        path = "/profile/manage"
+                        component = {(props) => (
+                            <Layout
+                                currentUser={currentUser}
+                                authenticate={authenticate}
+                            >
+                                <ManagePosts
+                                    currentUser = {currentUser}
+                                    {...props}
+                                />
+                            </Layout>
+                        )}
+                    />
+                </Switch>
     )
 }
