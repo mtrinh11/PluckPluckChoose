@@ -222,6 +222,18 @@ FULL CRUD ON TAG
 
 
 
+  _____ ___  ____   ___  
+ |_   _/ _ \|  _ \ / _ \ 
+   | || | | | | | | | | |
+   | || |_| | |_| | |_| |
+   |_| \___/|____/ \___/ 
+
+1. tie in new picture to upvote/downvote
+2. upload post
+3. Category
+4. 
+
+
 
 
 Notes From Andre Poppin In

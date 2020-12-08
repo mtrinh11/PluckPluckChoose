@@ -54,12 +54,14 @@ export default function Router(props) {
                 <Route 
                     exact
                     path = "/"
-                    component = {() => (
+                    component = {(props) => (
                         <Layout
                             toggleAuthenticated = {toggleAuthenticated}
                             {...props}
                         >
-                            <HomePage/> 
+                            <HomePage
+                            // {...props.post.picture}
+                            /> 
                         </Layout>
                     )}
                 />

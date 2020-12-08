@@ -1,13 +1,43 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {__GetPosts, __GetOnePost} from '../services/PostsServices'
 
-export default () => {
 
+const getOnePost = async (postId) => {
+    try{
+        const post = await __GetOnePost(postId)
+        return post
+    }catch(error){throw error}
+}
+
+// getAllPosts = async () => {
+//     try{
+//         const allDemPosts = await __GetPosts()
+//         return allDemPosts
+//     }catch(error){throw error}
+// }
+
+export default (props) => {
+    console.log('props',props)
+    const [thePost, setThePost] = useState(null)
+
+    console.log(getOnePost(3))
+    
     return (
         <div style={{margin: '50px', alignContent: ''}}>
-            <p style={{}}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id eu nisl nunc mi ipsum faucibus vitae aliquet. At augue eget arcu dictum varius. Egestas sed tempus urna et pharetra. Rhoncus urna neque viverra justo nec ultrices. Facilisis gravida neque convallis a cras semper. Volutpat commodo sed egestas egestas fringilla. Eget mi proin sed libero enim sed faucibus turpis in. Proin sed libero enim sed faucibus turpis in. A erat nam at lectus urna duis convallis convallis tellus. Eget dolor morbi non arcu risus quis varius quam quisque. Orci dapibus ultrices in iaculis nunc sed.
-            </p>
+            {/* <Card
+            {...props.post.picture}
+            >
+
+
+            </Card> */}
+            <p>this is my bullshit!</p>
         </div>
         
     )
 }
+
+
+/**
+ * Display the stuff
+ * 
+ */
