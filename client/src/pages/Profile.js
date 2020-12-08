@@ -31,7 +31,7 @@ export default () => {
     // we're going to use this to get the post and set it
     const [picUrl, setPicUrl] = useState('');
     // //
-    // const [,] = State();
+    const [isCreating, setCreatePost] = useState(false);
     // const [,] = State();
 
 
@@ -39,6 +39,9 @@ export default () => {
         getAccountPosts()
         createPost()
     }, [])
+
+    const toggleCreatePost = (value) => {setCreatePost(value)}
+
 
     const getAccountPosts = async () => {
         try {
@@ -68,20 +71,27 @@ export default () => {
             
             {/**Upload An Image */}
             <div>
-                <form onSubmit={createPost()}>
-                
-                <TextField
-                    fullwidth='true'
-                    id="imgUpload"
-                    label="imgUpload"
-                    type="url"
-                    placeholder="Upload an Image"
-                    variant="outlined"
-                    color="secondary"
-                    onChange={(e) => setPicUrl(e.target.value)}
-                    />
-                <button>Upload</button>
-                </form>
+                <button onClick ={()=>toggleCreatePost(true)}>Make A New Post</button>
+
+                <div>
+                    {props.isCreating ?
+                    <form onSubmit={createPost()}>
+                    
+                    <TextField
+                        fullwidth='true'
+                        id="imgUpload"
+                        label="imgUpload"
+                        type="url"
+                        placeholder="Upload an Image"
+                        variant="outlined"
+                        color="secondary"
+                        onChange={(e) => setPicUrl(e.target.value)}
+                        />
+                    <button>Upload</button>
+                    </form>
+             : null
+                    }
+                </div>
             </div>
 
     {/**Get account posts and delete a post */}
