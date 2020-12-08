@@ -36,7 +36,7 @@ export default (props) => {
 
     useEffect(() => {
         getAccountPosts()
-        createPost()
+        handleSubmit()
     }, [])
 
     const toggleCreatePost = (value) => {setCreatePost(value)}
@@ -52,16 +52,33 @@ export default (props) => {
         return
     }
     
-    const createPost = async (picUrl) => {
+    const handleSubmit = async (myEvent) => {
+        myEvent.preventDefault()
+        console.log('FRONTEND: Profile.js handleSubmit')
         try{
-            let picToUpload = await __UploadPost()
-            setPicUrl(picToUpload)
+            let picToUpload = {
+                picUrl: picUrl
+            }
+            let newPost = await __UploadPost(picToUpload)
+            props.history.push('/create')
+            //line 63 is.... questionable
         }
         catch(error){
-            console.log('FRONTEND: createPost fails')
+            console.log('FRONTEND: handleSubmit fails')
             throw error
         }
     }
+    // const createPost = async (picUrl, myEvent) => {
+    //     myEvent.preventDefault()
+    //     try{
+    //         let picToUpload = await __UploadPost()
+    //         setPicUrl(picToUpload)
+    //     }
+    //     catch(error){
+    //         console.log('FRONTEND: createPost fails')
+    //         throw error
+    //     }
+    // }
 /** map through and...*/
 
     return (
@@ -72,13 +89,12 @@ export default (props) => {
             <button onClick ={()=>toggleCreatePost(true)}>Make A New Post</button>
             <div>
                     {props.isCreating ?
-                    <form onSubmit={createPost()}>
+                    <form onSubmit={handleSubmit()}>
                     <TextField
                         fullwidth='true'
                         id="imgUpload"
-                        label="imgUpload"
+                        label="Upload an Image"
                         type="url"
-                        placeholder="Upload an Image"
                         variant="outlined"
                         color="secondary"
                         onChange={(e) => setPicUrl(e.target.value)}
