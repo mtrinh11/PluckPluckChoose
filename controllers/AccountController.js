@@ -19,6 +19,19 @@ const GetOneAccount = async (request, response) => {
         response.send(accountDetails)
     }catch(error){throw error}
 }
+
+const GetOneAccountByUserId = async (request, response) => {
+    try{
+        console.log('Back', request.body.user_id)
+        const accountDetails = await Account.findAll({
+            where: {user_id: request.body.user_id}
+        })
+        console.log('BACKEND: AccountController: GetOneAccountByUserIs')
+        response.send(accountDetails[0])
+    }catch(error) {
+        throw error
+    }
+}
  
 const GetAllAccounts = async (request, response) => {
     try{
@@ -31,5 +44,6 @@ const GetAllAccounts = async (request, response) => {
 module.exports = {
     CreateAccount,
     GetOneAccount,
-    GetAllAccounts
+    GetAllAccounts,
+    GetOneAccountByUserId 
 }

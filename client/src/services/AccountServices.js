@@ -18,6 +18,15 @@ export const __CreateAccount = async(formData) => {
     }
 }
 
+export const __GetAccountByUserId = async(formData) => {
+    try {
+        const res = ApiClient.post('/account/getaccountbyuser', formData)
+        return res
+    } catch (error) {
+        throw error
+    }
+}
+
 // export const __UpdateAccount = async() => {
 //     try {
 

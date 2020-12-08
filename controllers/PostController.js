@@ -9,7 +9,10 @@ const CreatePost = async (request, response) => {
         const post = await Post.create(body)
         console.log('BACKEND: PostController: CreatePost --created post')
         response.send(post)
-    }catch(error){throw error}
+    }catch(error){
+        response.status(401).send({message: `no dice!`})
+        throw error
+    }
 }
  
 const GetSinglePost = async (request, response) => {
@@ -86,9 +89,9 @@ const DownvotePost = async (request, response) => {
  
 const GetPostsByAccount = async (request, response) => {
     try{
-        const AccountId= request.params.accountId
+        const AccountId = request.params.account_id
         const AccountPosts = await Post.findAll(
-            {where: {id: AccountId} }
+            {where: {account_id:AccountId} }
         )
         response.send(AccountPosts)
     }catch(error){throw error}
