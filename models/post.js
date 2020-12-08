@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
      type: DataTypes.STRING,
      allowNull: false
     },
-      upvote:{ 
+    upvote:{ 
       type: DataTypes.INTEGER,
       defaultValue: 0,
       allowNull: false

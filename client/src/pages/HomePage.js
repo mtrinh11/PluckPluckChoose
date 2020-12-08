@@ -25,7 +25,6 @@ export default () => {
         return
     }
 
-
     return (
         <div style={{margin: '50px', alignContent: ''}}>
             <button onClick={() => getOneRandomPost()}>next</button>
