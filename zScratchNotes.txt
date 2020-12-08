@@ -145,9 +145,12 @@ CategoryServices
  |_| /_/   \_\____|_____|____/ 
                                
 
-
-
-
+Homepage displays one card, when a user votes it displays a new card
+profile is where a user can
+      upload posts
+      get all posts they've created
+      edit posts
+      delete a post
 
 
 
@@ -220,6 +223,18 @@ FULL CRUD ON TAG
   //DELETE
     delete the necessary association to delete  
 
+
+
+  _____ ___  ____   ___  
+ |_   _/ _ \|  _ \ / _ \ 
+   | || | | | | | | | | |
+   | || |_| | |_| | |_| |
+   |_| \___/|____/ \___/ 
+
+1. tie in new picture to upvote/downvote
+2. upload post
+3. Category
+4. 
 
 
 

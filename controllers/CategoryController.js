@@ -15,7 +15,7 @@ const GetCategory = async (request, response) => {
     try{
         let oneCategory = await Category.findByPk(request.params.categoryId)
         console.log('BACKEND: CategoryController GetCategory')
-        //throw error in a ternary  or something  if category does not exist
+        //throw error in a ternary  or something if category does not exist
         response.send(oneCategory)
     }catch(error){throw error}
 }
@@ -60,7 +60,6 @@ module.exports = {
     CreateCategory,
     GetCategory,
     GetAllCategories,
-
     //POSTMVP The following functions would only be accessible by admin privileges
     // They are included now in the purpose of our own project management
     // These are not necessary for MVP but are included for our own ease of use in testing

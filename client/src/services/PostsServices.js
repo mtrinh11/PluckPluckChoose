@@ -1,9 +1,9 @@
 import ApiClient from './ApiServices';
 
-export const __GetOnePost = async (post_id) => {
+export const __GetOnePost = async (postId) => {
     try {
         console.log(`FRONTEND: PostServices:__GetOnePost`)
-        const response = await ApiClient.get(`/post/${post_id}`)
+        const response = await ApiClient.get(`/post/${postId}`)
         return response.data
     } catch (error) {
         throw error
@@ -50,32 +50,45 @@ export const __UploadPost = async (formData) => {
     }
 }
 
-export const __UpvotePost = async (post_id) => {
+export const __UpvotePost = async (postId) => {
     try {
         console.log(`FRONTEND: PostServices: __UpvotePost`)
-        const response = await ApiClient.put(`/post/upvote/${post_id}`)
+        const response = await ApiClient.put(`/post/upvote/${postId}`)
         return response.data
     } catch (error) {
         throw error
     }
 }
 
-export const __DownvotePost = async (post_id) => {
+export const __DownvotePost = async (postId) => {
     try {
         console.log(`FRONTEND: PostServices: __DownvotePosts`)
-        const response = await ApiClient.put(`/post/downvote/${post_id}`)
+        const response = await ApiClient.put(`/post/downvote/${postId}`)
         return response.data
     } catch (error) {
         throw error
     }
 }
 
-export const __DeletePost = async (post_id) => {
+export const __DeletePost = async (postId) => {
     try {
         console.log(`FRONTEND: PostServices: __deletePosts`)
-        const response = await ApiClient.delete(`/post/${post_id}`)
+        const response = await ApiClient.delete(`/post/${postId}`)
         return response.data
     } catch (error) {
         throw error
     }
 }
+
+export const __GetPostsByAccount = async (accountId) => {
+    try{
+        
+        console.log(`FRONTEND: PostServices: __GetPostsByAccount`)
+        const response = await ApiClient.get(`/post/account/${accountId}`)
+    }catch(error){
+        throw error
+    }
+}
+
+//feel like these should be camelcased but let's focus on functionality for now 
+//-nz
