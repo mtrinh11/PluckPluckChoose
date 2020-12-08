@@ -145,9 +145,12 @@ CategoryServices
  |_| /_/   \_\____|_____|____/ 
                                
 
-
-
-
+Homepage displays one card, when a user votes it displays a new card
+profile is where a user can
+      upload posts
+      get all posts they've created
+      edit posts
+      delete a post
 
 
 

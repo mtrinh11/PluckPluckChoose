@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-export default({ children, ...rest }) => {
-    return( 
-        <div className= "card" {...rest}>
-        {children}
+export default (details) => {
+
+
+    return (
+        <div>
+            {details.downvotes}
+            {details.upvotes}
+            <img src={details.url} />
         </div>
     )
 }

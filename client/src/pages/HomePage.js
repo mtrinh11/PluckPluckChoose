@@ -1,6 +1,34 @@
 import React, {useState, useEffect} from 'react';
+<<<<<<< HEAD
 import {__GetPosts, __GetOnePost} from '../services/PostsServices'
 
+=======
+import {__GetOnePost} from '../services/PostsServices';
+import Card from '../components/Card'
+
+export default () => {
+    const [picUrl, setPicUrl] =  useState('');
+    const [postId, setPostId] = useState('');
+    const [postDownvotes, setPostDownvotes] = useState('');
+    const [postUpvotes, setPostUpvotes] = useState('');
+
+    useEffect(() => {
+        getOnePost(1);
+    }, [])
+
+    const getOnePost = async (id) => {
+        try {
+            let post = await __GetOnePost(id);
+            setPostId(post.id); 
+            setPicUrl(post.picture);
+            setPostUpvotes(post.upvote);
+            setPostDownvotes(post.downvote);
+        } catch (error) {
+            throw error
+        }
+        return
+    }
+>>>>>>> 7ff19c1dd24df792b455da05cb9ae0a37bab3e06
 
 const getOnePost = async (postId) => {
     try{
@@ -24,6 +52,7 @@ export default (props) => {
     
     return (
         <div style={{margin: '50px', alignContent: ''}}>
+<<<<<<< HEAD
             {/* <Card
             {...props.post.picture}
             >
@@ -31,6 +60,14 @@ export default (props) => {
 
             </Card> */}
             <p>this is my bullshit!</p>
+=======
+            <Card 
+                id={postId}
+                url={picUrl}
+                downvotes={postDownvotes}
+                upvotes={postUpvotes}
+            />
+>>>>>>> 7ff19c1dd24df792b455da05cb9ae0a37bab3e06
         </div>
         
     )

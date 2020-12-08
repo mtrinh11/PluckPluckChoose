@@ -4,7 +4,6 @@ import '../styles/Nav.css';
 
 
 export default ({authenticate, currentUser}) => {
-    console.log(authenticate, currentUser)
     return  authenticate && currentUser ? (
         <header>
             <nav>
@@ -14,7 +13,7 @@ export default ({authenticate, currentUser}) => {
                 >
                 <h3>Sign Out</h3>
                 </NavLink>
-                <h1> <a href='/profile'>Pluck Pluck Choose</a></h1>
+                <h1><NavLink to="/profile">Pluck Pluck Choose</NavLink></h1>
             </nav>
         </header>
         ) : (

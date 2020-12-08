@@ -6,6 +6,7 @@ Router.post('/create', controller.CreatePost)
 //READ
 Router.get('/:post_id', controller.GetSinglePost)
 Router.get('/all/posts', controller.GetAllPosts)
+Router.get('/account/:accountId', controller.GetPostsByAccount)
 //change get all posts to get "25" posts. otherwise the page could crash 
 // if there are say 10,000 posts
 //UPDATE

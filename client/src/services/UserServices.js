@@ -3,6 +3,7 @@ import ApiClient from './ApiServices';
 export const __LoginUser = async(userData) => {
     try {
         const res = await ApiClient.post('/user/login', userData)
+        console.log(res)
         localStorage.setItem('token', res.data.token)
         return res
     } catch (error) {
@@ -10,9 +11,13 @@ export const __LoginUser = async(userData) => {
     }
 }
 
-export const __CheckSession = async () => {
+export const __CheckSession = async (token) => {
     try {
-      const res = await ApiClient.get('/user/session')
+      const res = await ApiClient.get('/user/session', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
       return res.data
     } catch (error) {
       throw error
