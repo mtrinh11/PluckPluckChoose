@@ -44,7 +44,7 @@ export default () => {
     }
 
     const setOpacities = () => {
-        setOverlayOpacity('0.3')
+        setOverlayOpacity('0')
         setPostOpacity('0.2')
         setoverlayZindex('1')
     }
@@ -55,26 +55,21 @@ export default () => {
         setoverlayZindex('-1')
     }
 
-    console.log(postOpacity, overlayOpacity)
     return (
-        <div>
+        <div style={{height:'100%', flexGrow:'1'}}>
             <div style={{
                 zIndex: `${overlayZIndex}`,
                 position: 'absolute',
-                left: '0',
-                top: '0',
-                height: '100vh', 
-                width: '100vw',
                 backgroundColor: `rgba(211,211,211, ${overlayOpacity})`,
                 textAlign: 'center'
             }}>
-                <h1 style={{marginTop: '50%'}}> Please Sign In Before Plucking or Chucking!</h1>
+                <h1 style={{marginTop: '10%', marginLeft: '100px'}}> Please sign in before plucking or chucking!</h1>
                 <button onClick={() => {resetOpacities()}}> ok FOINE </button>
             </div>
             <div 
                 style={{ 
                     margin: '50px', 
-                    opacity: `${postOpacity}`
+                    opacity: `${postOpacity}`,
                 }}
             >
                 <div className={classes.root}>

@@ -1,5 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import {NavLink} from 'react-router-dom'
 
+<<<<<<< HEAD
 import {__GetPostsByAccount, __DeletePost, __UpdatePost, __UploadPost} from '../services/PostsServices'
 import TextField from '@material-ui/core/TextField'
 /**
@@ -121,6 +123,23 @@ export default (props) => {
                 </div>
             </div>
         </div>
+=======
+export default () => {
+
+    return (
+        <div style={{margin: '50px', alignContent: ''}}>
+            <NavLink
+                to="/profile/createpost"
+                >
+                <h3>Create Post</h3>
+            </NavLink>
+            <NavLink
+                to="/profile/manage"
+                >
+                <h3>Manage Posts</h3>
+            </NavLink>
+>>>>>>> 32c29d24266edfbb9cd1d08066155345508d75e4
         </div>
+        
     )
 }
