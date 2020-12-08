@@ -42,7 +42,6 @@ export default function Router(props) {
           }
         }
     }
-    console.log(pageLoading, authenticate, currentUser)
     return (
         <main>
             <Switch>
