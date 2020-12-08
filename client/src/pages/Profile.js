@@ -53,17 +53,35 @@ export default (props) => {
         }
         return
     }
-    
-    const createPost = async (picUrl) => {
+
+    const createPost = async (myEvent) => {
+        // myEvent.preventDefault()
+        console.log('FRONTEND: Profile.js handleSubmit')
         try{
-            let picToUpload = await __UploadPost()
-            setPicUrl(picToUpload)
+            let picToUpload = {
+                picUrl: picUrl
+            }
+            let newPost = await __UploadPost(picToUpload)
+            props.history.push('/create')
+            //line 63 is.... questionable
         }
         catch(error){
-            console.log('FRONTEND: createPost fails')
+            console.log('FRONTEND: handleSubmit fails')
             throw error
         }
     }
+    
+    // const createPost = async (e, picUrl) => {
+    //         e.preventDefault()
+    //     try{
+    //         let picToUpload = await __UploadPost()
+    //         setPicUrl(picToUpload)
+    //     }
+    //     catch(error){
+    //         console.log('FRONTEND: createPost fails')
+    //         throw error
+    //     }
+    // }
 /** map through and...*/
 
     return (
@@ -73,8 +91,8 @@ export default (props) => {
             <div>
             <button onClick ={()=>toggleCreatePost(true)}>Make A New Post</button>
             <div>
-                    {props.isCreating ?
-                    <form onSubmit={createPost()}>
+                    {/* {props.isCreating ? */}
+                    <form onSubmit = {() => {createPost()}}>
                     <TextField
                         fullwidth='true'
                         id="imgUpload"
@@ -87,8 +105,8 @@ export default (props) => {
                         />
                     <button>Upload</button>
                     </form>
-                : null
-                    }
+                {/* : null
+                    } */}
                 </div>
             </div>
 

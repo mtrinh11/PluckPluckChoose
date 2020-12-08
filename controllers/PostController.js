@@ -86,9 +86,9 @@ const DownvotePost = async (request, response) => {
  
 const GetPostsByAccount = async (request, response) => {
     try{
-        const AccountId= request.params.account_id
+        const AccountId= request.params.accountId
         const AccountPosts = await Post.findAll(
-            {where: {id:AccountId} }
+            {where: {id: AccountId} }
         )
         response.send(AccountPosts)
     }catch(error){throw error}
