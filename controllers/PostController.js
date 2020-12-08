@@ -104,7 +104,8 @@ module.exports ={
     EditPost,
     UpvotePost,
     DownvotePost,
-    DeletePost
+    DeletePost,
+    GetPostsByAccount
  }
 
 
