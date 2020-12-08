@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {__GetOnePost} from '../services/PostsServices';
+import {__GetRandomPost} from '../services/PostsServices';
 import Card from '../components/Card'
 
 export default () => {
@@ -9,12 +9,12 @@ export default () => {
     const [postUpvotes, setPostUpvotes] = useState('');
 
     useEffect(() => {
-        getOnePost(1);
+        getOneRandomPost();
     }, [])
 
-    const getOnePost = async (id) => {
+    const getOneRandomPost = async () => {
         try {
-            let post = await __GetOnePost(id);
+            let post = await __GetRandomPost();
             setPostId(post.id); 
             setPicUrl(post.picture);
             setPostUpvotes(post.upvote);
@@ -27,6 +27,7 @@ export default () => {
 
     return (
         <div style={{margin: '50px', alignContent: ''}}>
+            <button onClick={() => getOneRandomPost()}>next</button>
             <Card 
                 id={postId}
                 url={picUrl}
