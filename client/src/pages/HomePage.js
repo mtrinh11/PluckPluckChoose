@@ -1,12 +1,38 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {__GetOnePost} from '../services/PostsServices';
+import Card from '../components/Card'
 
 export default () => {
+    const [picUrl, setPicUrl] =  useState('');
+    const [postId, setPostId] = useState('');
+    const [postDownvotes, setPostDownvotes] = useState('');
+    const [postUpvotes, setPostUpvotes] = useState('');
+
+    useEffect(() => {
+        getOnePost(1);
+    }, [])
+
+    const getOnePost = async (id) => {
+        try {
+            let post = await __GetOnePost(id);
+            setPostId(post.id); 
+            setPicUrl(post.picture);
+            setPostUpvotes(post.upvote);
+            setPostDownvotes(post.downvote);
+        } catch (error) {
+            throw error
+        }
+        return
+    }
 
     return (
         <div style={{margin: '50px', alignContent: ''}}>
-            <p style={{}}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id eu nisl nunc mi ipsum faucibus vitae aliquet. At augue eget arcu dictum varius. Egestas sed tempus urna et pharetra. Rhoncus urna neque viverra justo nec ultrices. Facilisis gravida neque convallis a cras semper. Volutpat commodo sed egestas egestas fringilla. Eget mi proin sed libero enim sed faucibus turpis in. Proin sed libero enim sed faucibus turpis in. A erat nam at lectus urna duis convallis convallis tellus. Eget dolor morbi non arcu risus quis varius quam quisque. Orci dapibus ultrices in iaculis nunc sed.
-            </p>
+            <Card 
+                id={postId}
+                url={picUrl}
+                downvotes={postDownvotes}
+                upvotes={postUpvotes}
+            />
         </div>
         
     )
