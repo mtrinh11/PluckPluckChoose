@@ -27,12 +27,11 @@ import TextField from '@material-ui/core/TextField'
  * 
  */
 
-export default () => {
+export default (props) => {
     // we're going to use this to get the post and set it
     const [picUrl, setPicUrl] = useState('');
-    // //
     const [isCreating, setCreatePost] = useState(false);
-    // const [,] = State();
+    //
 
 
     useEffect(() => {
@@ -41,7 +40,6 @@ export default () => {
     }, [])
 
     const toggleCreatePost = (value) => {setCreatePost(value)}
-
 
     const getAccountPosts = async () => {
         try {
@@ -71,12 +69,10 @@ export default () => {
             
             {/**Upload An Image */}
             <div>
-                <button onClick ={()=>toggleCreatePost(true)}>Make A New Post</button>
-
-                <div>
+            <button onClick ={()=>toggleCreatePost(true)}>Make A New Post</button>
+            <div>
                     {props.isCreating ?
                     <form onSubmit={createPost()}>
-                    
                     <TextField
                         fullwidth='true'
                         id="imgUpload"
@@ -89,20 +85,20 @@ export default () => {
                         />
                     <button>Upload</button>
                     </form>
-             : null
+                : null
                     }
                 </div>
             </div>
 
     {/**Get account posts and delete a post */}
-           <div class="row">
-                <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-image">
+           <div className="row">
+                <div className="col s12 m6">
+                <div className="card">
+                    <div className="card-image">
                     {/* <img src=*put each card image here/> */}
                     <a className="btn-floating halfway-fab waves-effect waves-light red">
                         <i className="material-icons">Delete</i></a>
-                    <div class="card-content">
+                    <div className="card-content">
                     <p></p>
                     </div>
                 </div>
