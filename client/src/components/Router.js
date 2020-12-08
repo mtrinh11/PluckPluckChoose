@@ -44,7 +44,6 @@ export default function Router(props) {
     }
 
     return (
-        <main>
             <Switch>
                 <Route 
                     exact
@@ -92,6 +91,5 @@ export default function Router(props) {
                     )}
                 />
             </Switch>
-        </main>
     )
 }
