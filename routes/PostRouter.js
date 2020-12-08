@@ -4,6 +4,7 @@ const controller = require('../controllers/PostController')
 //CREATE
 Router.post('/create', controller.CreatePost)
 //READ
+Router.get('/random', controller.GetRandomPost)
 Router.get('/:post_id', controller.GetSinglePost)
 Router.get('/all/posts', controller.GetAllPosts)
 Router.get('/account/:accountId', controller.GetPostsByAccount)
