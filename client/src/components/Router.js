@@ -7,7 +7,7 @@ import ProtectedRoute from '../components/ProtectedRoute';
 import HomePage from '../pages/HomePage';
 import SigninPage from '../pages/SigninPage';
 import SignupPage from '../pages/SignupPage';
-import Profile from '../pages/Profile'
+import Profile from '../pages/CreatePost'
 
 import { __CheckSession } from '../services/UserServices'
 
@@ -44,7 +44,6 @@ export default function Router(props) {
     }
 
     return (
-        <main>
             <Switch>
                 <Route 
                     exact
@@ -92,6 +91,5 @@ export default function Router(props) {
                     )}
                 />
             </Switch>
-        </main>
     )
 }
