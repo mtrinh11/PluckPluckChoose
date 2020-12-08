@@ -85,6 +85,7 @@ export const __GetPostsByAccount = async (accountId) => {
         
         console.log(`FRONTEND: PostServices: __GetPostsByAccount`)
         const response = await ApiClient.get(`/post/account/${accountId}`)
+        return response.data
     }catch(error){
         throw error
     }

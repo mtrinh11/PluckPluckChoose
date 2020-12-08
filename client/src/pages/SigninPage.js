@@ -14,7 +14,6 @@ export default (props) => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        console.log('throw')
         try {
             const res = await __LoginUser({
                 email: email,
@@ -26,7 +25,7 @@ export default (props) => {
             throw error
         }
     }
-    console.log(formError)
+
     return (
         <div style={{backgroundColor: 'white', padding: '50px', borderRadius:'20px'}} >
             <div className="row">

@@ -55,7 +55,6 @@ export default () => {
         setoverlayZindex('-1')
     }
 
-    console.log(postOpacity, overlayOpacity)
     return (
         <div style={{height:'100%', flexGrow:'1'}}>
             <div style={{
