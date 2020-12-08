@@ -22,7 +22,7 @@ export const __GetPosts = async () => {
 
 export const __GetRandomPost = async () => {
     try {
-        console.log(`FRONTEND: PostServices:__GetPosts`)
+        console.log(`FRONTEND: PostServices:__GetRandomPosts`)
         const response = await ApiClient.get(`/post/random`)
         return response.data
     } catch (error) {
