@@ -1,4 +1,4 @@
-const {Post} = require('../models')
+const {Post, sequelize} = require('../models')
 const UserController = require('./UserController')
 
 
@@ -17,6 +17,14 @@ const GetSinglePost = async (request, response) => {
         const onePost = await Post.findByPk(request.params.post_id)
         console.log('BACKEND: PostController: GetSinglePost')
         response.send(onePost)
+    }catch(error){throw error}
+}
+
+const GetRandomPost = async (request, response) => {
+    try{
+        const randPost = await Post.findOne({order: sequelize.random(), raw: true})
+        console.log('BACKEND: PostController: GetRandomPost')
+        response.send(randPost)
     }catch(error){throw error}
 }
  
@@ -89,6 +97,7 @@ const GetPostsByAccount = async (request, response) => {
 module.exports ={
     CreatePost,
     GetSinglePost,
+    GetRandomPost,
     GetAllPosts,
     EditPost,
     UpvotePost,
