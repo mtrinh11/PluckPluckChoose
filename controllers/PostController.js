@@ -1,8 +1,6 @@
 const {Post, sequelize} = require('../models')
 const UserController = require('./UserController')
 
-//This is all pending the Post Model creation
-
 
 const CreatePost = async (request, response) => {
     try{
@@ -88,7 +86,7 @@ const DownvotePost = async (request, response) => {
  
 const GetPostsByAccount = async (request, response) => {
     try{
-        const AccountId= request.params.accountId
+        const AccountId= request.params.account_id
         const AccountPosts = await Post.findAll(
             {where: {id:AccountId} }
         )
