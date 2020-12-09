@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+<<<<<<< HEAD
 export default (props) => {
     // we're going to use this to get the post and set it
     const [picUrl, setPicUrl] = useState('');
@@ -58,6 +59,9 @@ export default (props) => {
         }
     }
 
+=======
+export default () => {
+>>>>>>> 2ab94b1cca13c3f93ad724e1be37943a56877f8d
 
     const classes = useStyles();
 

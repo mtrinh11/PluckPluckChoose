@@ -7,7 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 import {__GetPostsByAccount, __DeletePost} from '../services/PostsServices';
 import {__GetAccountByUserId} from '../services/AccountServices'
 
@@ -23,7 +22,6 @@ const useStyles = makeStyles({
 export default (props) => {
 
     const classes = useStyles();
-
     const [userPosts, setUserPosts] = useState(null)
     const [acctId, setAcctId] = useState(null)
     
@@ -52,16 +50,6 @@ export default (props) => {
             let res = await __GetPostsByAccount(id)
             setUserPosts(res)
         } catch (error) {
-            throw error
-        }
-    }
-
-    const deletePost = async (post_id) => {
-        try{
-            let res = await __DeletePost(post_id)
-            console.log('FRONTEND ManagePosts deletePost hits')
-        }catch(error){
-            console.log('FRONTEND ManagePosts deletePost fails')
             throw error
         }
     }
@@ -101,13 +89,7 @@ export default (props) => {
                             </CardActionArea>
 
                             <CardActions>
-<<<<<<< HEAD
-                                <Button size="small" color="primary" onClick={()=>deletePost()}>
-=======
-                                <Button size="small" color="primary" onClick={() => {
-                                    deletePost(post.id)
-                                }} >
->>>>>>> 43be59ad031620a83b7516cd423cf135b9b9313b
+                                <Button size="small" color="primary" onClick={()=>deletePost({id})}>
                                 Delete
                                 </Button>
                             </CardActions>

@@ -42,8 +42,14 @@ module.exports = (sequelize, DataTypes) => {
     account_id:{
       type: DataTypes.STRING,
       allowNull: false
+    },
+    title:{
+      type: DataTypes.STRING,
+    },
+    description:{ 
+      type: DataTypes.STRING
     }
-  }, {
+    }, {
     sequelize,
     modelName: 'Post',
     tableName: 'posts'

@@ -231,12 +231,17 @@ FULL CRUD ON TAG
    | || |_| | |_| | |_| |
    |_| \___/|____/ \___/ 
 
-1. tie in new picture to upvote/downvote
-2. upload post
-3. Category
-4. 
 
 
+1. Categories
+2. Titles and Descriptions
+    model updating
+    CRUD
+3. Figure out Comparison Questions
+4. Figure out comparison Page and how to log results
+5. Third Party API incorporation
+6. CreatePosts/ManagePosts in sidebar on profile.js
+7. Cloudinary
 
 
 Notes From Andre Poppin In
