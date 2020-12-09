@@ -81,9 +81,9 @@ export default (props) => {
                                     <Typography gutterBottom variant="h5" component="h2">
                                     {`Post #${index + 1}`}
                                     </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p" style={{minWidth="450px"}}>
+                                    <Typography variant="body2" color="textSecondary" component="p" >
                                         {post.title}
-                                        {/* {post.description} */}
+                                        {post.description}
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
