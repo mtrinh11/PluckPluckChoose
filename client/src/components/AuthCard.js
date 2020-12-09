@@ -28,6 +28,10 @@ export default (details) => {
                 textShadow:'2px 2px 5px black',
                 maxWidth: '700px'}}
             />
+            <div>
+                <p>{details.title}</p>
+                <p>{details.description}</p>
+            </div>
             <div style={{display: 'flex', textAlign: 'center', marginTop: '50px' }}>
                 <div style={{flexGrow: '1'}}>
                     <IconButton 

@@ -29,11 +29,15 @@ export default (details) => {
                 maxWidth: '700px',
             }}
             />
+            <div>
+                <p>{details.title}</p>
+                <p>{details.description}</p>
+            </div>
             <div style={{display: 'flex', textAlign: 'center', marginTop: '50px' }}>
                 <div style={{flexGrow: '1', marginRight: '100px'}}>
                     <IconButton 
                         onClick={() => details.onclick()}
-                    >
+                        >
                         <SentimentDissatisfiedIcon style={{fontSize: '60px'}}/>
                     </IconButton>
                     <p>Chucked by {details.downvotes} people</p>
@@ -41,7 +45,7 @@ export default (details) => {
                 <div style={{flexGrow: '1'}}>
                     <IconButton 
                         onClick={() => details.onclick()}
-                    >
+                        >
                         <SentimentSatisfiedAltIcon style={{fontSize: '60px'}}/>
                     </IconButton>
                     <p>Plucked by {details.upvotes} people</p>
@@ -49,4 +53,5 @@ export default (details) => {
             </div>
         </div>
     )
+    
 }
