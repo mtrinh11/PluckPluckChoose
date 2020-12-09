@@ -44,43 +44,46 @@ const handleSubmit = async(e) => {
 
 
     return (
-        <div style={{backgroundColor:'white', padding: '50px', borderRadius:'20px'}}>
-            <form onSubmit={(e) => handleSubmit(e)} className={classes.root} noValidate autoComplete="off" style={{width:'100%'}}>
-                <div>
+        <div style={{backgroundColor:'white', padding: '50px', borderRadius:'20px', flexGrow: '1', textAlign: 'center'}}>
+            <div className="row">
+                <form onSubmit={(e) => handleSubmit(e)} className="col s12" >
+                    <div style={{margin: '10px'}}>
+                        <TextField
+                            fullwidth='true'
+                            id="email"
+                            label="Email"
+                            type="email"
+                            variant="outlined"
+                            color="secondary"
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    <div style={{margin: '10px'}}>
                     <TextField
-                        fullwidth='true'
-                        id="email"
-                        label="Email"
-                        type="email"
-                        variant="outlined"
-                        color="secondary"
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-                <div>
-                   <TextField
-                        fullwidth='true'
-                        id="username"
-                        label="Username"
-                        variant="outlined"
-                        color="secondary"
-                        type="text"
-                        onChange={(e) => setUsername(e.target.value)}
-                    /> 
-                </div>
-                <div>
-                   <TextField
-                        fullwidth='true'
-                        id="password"
-                        label="Password"
-                        variant="outlined"
-                        color="secondary"
-                        type="password"
-                        onChange={(e) => setPassword(e.target.value)}
-                    /> 
-                </div>
-                <button> Sign Up </button>
-            </form>
+                            fullwidth='true'
+                            id="username"
+                            label="Username"
+                            variant="outlined"
+                            color="secondary"
+                            type="text"
+                            onChange={(e) => setUsername(e.target.value)}
+                        /> 
+                    </div>
+                    <div style={{margin: '10px'}}>
+                        <TextField
+                            fullwidth='true'
+                            id="password"
+                            label="Password"
+                            variant="outlined"
+                            color="secondary"
+                            type="password"
+                            onChange={(e) => setPassword(e.target.value)}
+                        /> 
+                    </div>
+                    <button> Sign Up </button>
+                </form>
+            </div>
+            
         </div>
         
     )
