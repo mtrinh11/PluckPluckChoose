@@ -7,12 +7,6 @@ export default (props) => {
     const [titleText, setTitle] = useState('')
     const [formError, setFormError] = useState(false)
 
-
-
-
-
-
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
