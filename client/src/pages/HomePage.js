@@ -81,7 +81,7 @@ export default () => {
                     <IconButton 
                     style={{}}
                     onClick={() => {getOneRandomPost()}}>
-                        <p> next </p>
+                        <p> Skip </p>
                         <NavigateNextIcon />
                     </IconButton>
                 </div>
