@@ -61,8 +61,6 @@ export default (props) => {
                 description: descriptionText
             }
             let picToUpload = await __UploadPost(submittedInfo)
-            console.log(picToUpload)
-            setPicUrl(picToUpload)
             props.history.push('/profile/manage')
         }// need to add a unique key to each post
         catch(error){
