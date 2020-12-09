@@ -24,12 +24,16 @@ export default () => {
     const [postId, setPostId] = useState('');
     const [postDownvotes, setPostDownvotes] = useState('');
     const [postUpvotes, setPostUpvotes] = useState('');
+    const [titleText, setTitle] = useState('')
+    const [descriptionText, setDescription] = useState('')
 
     const getOneRandomPost = async () => {
         try {
             let post = await __GetRandomPost();
             setPostId(post.id); 
             setPicUrl(post.picture);
+            setTitle(post.text)
+            setDescription(post.description)
             setPostUpvotes(post.upvote);
             setPostDownvotes(post.downvote);
         } catch (error) {
@@ -54,6 +58,8 @@ export default () => {
     useEffect(() => {
         getOneRandomPost();
     }, [])
+
+    console.log('this is the title', titleText,'this is the desription', descriptionText)
 
     return (
         <div style={{margin: '50px', alignContent: ''}}>
@@ -84,6 +90,8 @@ export default () => {
                     <AuthCard 
                         id={postId}
                         url={picUrl}
+                        title={titleText}
+                        description={descriptionText}
                         downvotes={postDownvotes}
                         upvotes={postUpvotes}
                         // mt onclick

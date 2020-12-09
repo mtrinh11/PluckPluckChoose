@@ -22,6 +22,8 @@ export default () => {
     const [postId, setPostId] = useState('');
     const [postDownvotes, setPostDownvotes] = useState('');
     const [postUpvotes, setPostUpvotes] = useState('');
+    const [titleText, setTitle] = useState('');
+    const [descriptionText, setDescription] = useState('');
     const [postOpacity, setPostOpacity] = useState(1)
     const [overlayOpacity, setOverlayOpacity] = useState(0)
     const [overlayZIndex, setoverlayZindex] = useState(-1)
@@ -30,11 +32,15 @@ export default () => {
         getOneRandomPost();
     }, [])
 
+    console.log('this is the title',titleText,'this is the desription', descriptionText)
+
     const getOneRandomPost = async () => {
         try {
             let post = await __GetRandomPost();
             setPostId(post.id); 
             setPicUrl(post.picture);
+            setTitle(post.text);
+            setDescription(post.description);
             setPostUpvotes(post.upvote);
             setPostDownvotes(post.downvote);
         } catch (error) {
@@ -83,6 +89,8 @@ export default () => {
                 <Card 
                     id={postId}
                     url={picUrl}
+                    title={titleText}
+                    description={descriptionText}
                     downvotes={postDownvotes}
                     upvotes={postUpvotes}
                     onclick={() => setOpacities()}
