@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {__CreateCategory, __EditCategory} from '../services/CategoryServices'
-import Textfield from '@material-ui/core/TextField'
+import TextField from '@material-ui/core/TextField';
 
 export default (props) => {
 
