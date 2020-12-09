@@ -27,7 +27,7 @@ export default (props) => {
     }
 
     return (
-        <div style={{backgroundColor: 'white', padding: '50px', borderRadius:'20px'}} >
+        <div style={{backgroundColor: 'white', padding: '50px', borderRadius:'20px', flexGrow: '1', textAlign: 'center'}} >
             <div className="row">
                 <form className="col s12" onSubmit={(e) => handleSubmit(e)}>
                     <div style={{margin: '10px'}}>

@@ -1,9 +1,12 @@
 header nav {
-    background-color: #a35d6a;
+    background-color: #62555F;
+    /* background-image: url('https://images.unsplash.com/photo-1592488238515-6fe7e4469d4a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80'); */
+    /* background-size: cover; */
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     grid-column: span 2;
+    /* border-bottom: 3px solid #A97589; */
 }
 
 nav a {
@@ -11,12 +14,13 @@ nav a {
     padding: 10px;
     text-decoration: none;
     cursor: pointer;
-    color:black;
+    color: #F4EEED;
+
 }
 
 nav h1 {
     margin-left: 30px; 
     margin-right: 30px;
-    color:black;
+    color:#F4EEED;
     flex-grow: 1;
 }

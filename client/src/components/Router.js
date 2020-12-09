@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 
 import Layout from '../components/Layout';
 import ProtectedRoute from '../components/ProtectedRoute';
+import Sidebar from '../components/Sidebar'
 
 import HomePage from '../pages/HomePage';
 import SigninPage from '../pages/SigninPage';
@@ -88,6 +89,7 @@ export default function Router(props) {
                                 currentUser={currentUser}
                                 authenticate={authenticate}
                             >
+                                <Sidebar collapsed={false} {...props}/>
                                 <Profile />
                             </Layout>
                         )}
@@ -101,6 +103,7 @@ export default function Router(props) {
                                 currentUser={currentUser}
                                 authenticate={authenticate}
                             >
+                                <Sidebar collapsed={false} {...props}/>
                                 <CreatePost 
                                     currentUser = {currentUser}
                                     {...props}
@@ -117,6 +120,7 @@ export default function Router(props) {
                                 currentUser={currentUser}
                                 authenticate={authenticate}
                             >
+                                <Sidebar collapsed={false} {...props}/>
                                 <ManagePosts
                                     currentUser = {currentUser}
                                     {...props}

@@ -44,7 +44,7 @@ export default () => {
     }
 
     const setOpacities = () => {
-        setOverlayOpacity('0')
+        setOverlayOpacity('1')
         setPostOpacity('0.2')
         setoverlayZindex('1')
     }
@@ -59,8 +59,9 @@ export default () => {
         <div style={{height:'100%', flexGrow:'1'}}>
             <div style={{
                 zIndex: `${overlayZIndex}`,
+                opacity: `${overlayOpacity}`,
                 position: 'absolute',
-                backgroundColor: `rgba(211,211,211, ${overlayOpacity})`,
+                backgroundColor: `rgba(256, 256, 256, ${overlayOpacity})`,
                 textAlign: 'center'
             }}>
                 <h1 style={{marginTop: '10%', marginLeft: '100px'}}> Please sign in before plucking or chucking!</h1>
