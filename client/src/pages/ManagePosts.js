@@ -37,6 +37,16 @@ export default (props) => {
         }
     }
 
+    const deletePost = async () => {
+        try{
+            let res = await __DeletePost(post_id)
+            console.log('FRONTEND ManagePosts deletePost hits')
+        }catch(error){
+            console.log('FRONTEND ManagePosts deletePost fails')
+            throw error
+        }
+    }
+
     const getAccountPosts = async (id) => {
         try {
             let res = await __GetPostsByAccount(id)
@@ -94,6 +104,7 @@ export default (props) => {
                                 <Button size="small" color="primary" onClick={() => {
                                     deletePost(post.id)
                                 }} >
+
                                 Delete
                                 </Button>
                             </CardActions>
