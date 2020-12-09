@@ -73,7 +73,7 @@ export const __DownvotePost = async (postId) => {
 export const __DeletePost = async (postId) => {
     try {
         console.log(`FRONTEND: PostServices: __deletePosts`)
-        const response = await ApiClient.delete(`/post/${postId}`)
+        const response = await ApiClient.delete(`/post/delete/${postId}`)
         return response.data
     } catch (error) {
         throw error
