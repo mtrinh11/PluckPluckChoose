@@ -7,7 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 import {__GetPostsByAccount, __DeletePost} from '../services/PostsServices';
 import {__GetAccountByUserId} from '../services/AccountServices'
 
@@ -23,7 +22,6 @@ const useStyles = makeStyles({
 export default (props) => {
 
     const classes = useStyles();
-
     const [userPosts, setUserPosts] = useState(null)
     const [acctId, setAcctId] = useState(null)
     
