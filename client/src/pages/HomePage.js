@@ -22,6 +22,8 @@ export default () => {
     const [postId, setPostId] = useState('');
     const [postDownvotes, setPostDownvotes] = useState('');
     const [postUpvotes, setPostUpvotes] = useState('');
+    const [titleText, setTitle] = useState('');
+    const [descriptionText, setDescription] = useState('');
     const [postOpacity, setPostOpacity] = useState(1)
     const [overlayOpacity, setOverlayOpacity] = useState(0)
     const [overlayZIndex, setoverlayZindex] = useState(-1)
@@ -30,11 +32,15 @@ export default () => {
         getOneRandomPost();
     }, [])
 
+    console.log('this is the title',titleText,'this is the desription', descriptionText)
+
     const getOneRandomPost = async () => {
         try {
             let post = await __GetRandomPost();
             setPostId(post.id); 
             setPicUrl(post.picture);
+            setTitle(post.text);
+            setDescription(post.description);
             setPostUpvotes(post.upvote);
             setPostDownvotes(post.downvote);
         } catch (error) {
@@ -44,7 +50,7 @@ export default () => {
     }
 
     const setOpacities = () => {
-        setOverlayOpacity('0')
+        setOverlayOpacity('1')
         setPostOpacity('0.2')
         setoverlayZindex('1')
     }
@@ -59,8 +65,9 @@ export default () => {
         <div style={{height:'100%', flexGrow:'1'}}>
             <div style={{
                 zIndex: `${overlayZIndex}`,
+                opacity: `${overlayOpacity}`,
                 position: 'absolute',
-                backgroundColor: `rgba(211,211,211, ${overlayOpacity})`,
+                backgroundColor: `rgba(256, 256, 256, ${overlayOpacity})`,
                 textAlign: 'center'
             }}>
                 <h1 style={{marginTop: '10%', marginLeft: '100px'}}> Please sign in before plucking or chucking!</h1>
@@ -83,6 +90,8 @@ export default () => {
                 <Card 
                     id={postId}
                     url={picUrl}
+                    title={titleText}
+                    description={descriptionText}
                     downvotes={postDownvotes}
                     upvotes={postUpvotes}
                     onclick={() => setOpacities()}

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Link} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -35,21 +35,22 @@ export default (props) => {
         }
     }
 
-    const deletePost = async () => {
-        try{
-            let res = await __DeletePost(post_id)
-            console.log('FRONTEND ManagePosts deletePost hits')
-        }catch(error){
-            console.log('FRONTEND ManagePosts deletePost fails')
-            throw error
-        }
-    }
-
     const getAccountPosts = async (id) => {
         try {
             let res = await __GetPostsByAccount(id)
             setUserPosts(res)
         } catch (error) {
+            throw error
+        }
+    }
+
+    const deletePost = async (post_id) => {
+        try{
+            let res = await __DeletePost(post_id)
+            props.history.push("/profile")
+            console.log('FRONTEND ManagePosts deletePost hits')
+        }catch(error){
+            console.log('FRONTEND ManagePosts deletePost fails')
             throw error
         }
     }
@@ -89,7 +90,11 @@ export default (props) => {
                             </CardActionArea>
 
                             <CardActions>
-                                <Button size="small" color="primary" onClick={()=>deletePost({id})}>
+                            
+                                <Button size="small" color="primary"  onClick={() => {
+                                    deletePost(post.id) 
+                                }} >
+
                                 Delete
                                 </Button>
                             </CardActions>
