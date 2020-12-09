@@ -25,7 +25,8 @@ export default (details) => {
                 borderRadius: '5px',
                 boxShadow: '3px 3px 20px black',
                 color: 'white',
-                textShadow:'2px 2px 5px black'}}
+                textShadow:'2px 2px 5px black'
+            }}
             />
             <div style={{display: 'flex', textAlign: 'center', marginTop: '50px' }}>
                 <div style={{flexGrow: '1'}}>
