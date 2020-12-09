@@ -30,6 +30,10 @@ export default (props) => {
         props.history.push('/profile')
     }
 
+    const pushToHomePage = () => {
+        props.history.push('/profile/createcategory')
+    }
+
     return (
         <ProSidebar
         style={{backgroundColor: 'white'}}
@@ -45,6 +49,9 @@ export default (props) => {
                 </MenuItem>
                 <MenuItem icon={<AddBoxIcon/>} onClick={() => pushToCreatePage()}>
                     <h3 >Create Post</h3>
+                </MenuItem>
+                <MenuItem icon={<EditIcon/>} onClick={() => pushToCreateCategoryPage()}>
+                    <h3 >Create Category</h3>
                 </MenuItem>
                 <MenuItem icon={<EditIcon/>} onClick={() => pushToManagePage()}>
                     <h3 >Manage Posts</h3>
