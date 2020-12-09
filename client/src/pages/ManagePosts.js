@@ -8,7 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import {__GetPostsByAccount} from '../services/PostsServices';
+import {__GetPostsByAccount, __DeletePost} from '../services/PostsServices';
 import {__GetAccountByUserId} from '../services/AccountServices'
 
 const useStyles = makeStyles({
@@ -33,6 +33,16 @@ export default (props) => {
             console.log(res)
             setAcctId(res.data.id)
         } catch (error) {
+            throw error
+        }
+    }
+
+    const deletePost = async () => {
+        try{
+            let res = await __DeletePost(post_id)
+            console.log('FRONTEND ManagePosts deletePost hits')
+        }catch(error){
+            console.log('FRONTEND ManagePosts deletePost fails')
             throw error
         }
     }
@@ -81,7 +91,7 @@ export default (props) => {
                             </CardActionArea>
 
                             <CardActions>
-                                <Button size="small" color="primary">
+                                <Button size="small" color="primary" onClick={()=>deletePost()}>
                                 Delete
                                 </Button>
                             </CardActions>

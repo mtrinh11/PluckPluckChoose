@@ -1,7 +1,4 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom'
-
-<<<<<<< HEAD
+import React, {useState, useEffect} from 'react';
 import {__GetPostsByAccount, __DeletePost, __UpdatePost, __UploadPost} from '../services/PostsServices'
 import TextField from '@material-ui/core/TextField'
 /**
@@ -59,7 +56,7 @@ export default (props) => {
         console.log('FRONTEND: Profile.js handleSubmit')
         try{
             let picToUpload = {
-                picUrl: picUrl
+                picture: picUrl
             }
             let newPost = await __UploadPost(picToUpload)
             props.history.push('/create')
@@ -123,23 +120,6 @@ export default (props) => {
                 </div>
             </div>
         </div>
-=======
-export default () => {
-
-    return (
-        <div style={{margin: '50px', alignContent: ''}}>
-            <NavLink
-                to="/profile/createpost"
-                >
-                <h3>Create Post</h3>
-            </NavLink>
-            <NavLink
-                to="/profile/manage"
-                >
-                <h3>Manage Posts</h3>
-            </NavLink>
->>>>>>> 32c29d24266edfbb9cd1d08066155345508d75e4
         </div>
-        
     )
 }
