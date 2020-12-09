@@ -6,6 +6,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import DehazeIcon from '@material-ui/icons/Dehaze';
 import HomeIcon from '@material-ui/icons/Home';
+import LoyaltyIcon from '@material-ui/icons/Loyalty';
 
 export default (props) => {
     const [collapsed, setCollapsed] = useState(true)
@@ -50,7 +51,7 @@ export default (props) => {
                 <MenuItem icon={<AddBoxIcon/>} onClick={() => pushToCreatePage()}>
                     <h3 >Create Post</h3>
                 </MenuItem>
-                <MenuItem icon={<EditIcon/>} onClick={() => pushToCreateCategoryPage()}>
+                <MenuItem icon={<LoyaltyIcon/>} onClick={() => pushToCreateCategoryPage()}>
                     <h3 >Create Category</h3>
                 </MenuItem>
                 <MenuItem icon={<EditIcon/>} onClick={() => pushToManagePage()}>
