@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {NavLink} from 'react-router-dom';
 
 import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import 'react-pro-sidebar/dist/css/styles.css';
+import '../styles/SidebarStyles.css';
 import EditIcon from '@material-ui/icons/Edit';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import DehazeIcon from '@material-ui/icons/Dehaze';
