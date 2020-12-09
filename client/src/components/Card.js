@@ -19,16 +19,18 @@ export default (details) => {
     const classes = useStyles();
 
     return (
-        <div style={{display: 'flex', flexDirection: 'column', margin: '50px'}}>
+        <div style={{display: 'flex', flexDirection: 'column', margin: '5px', alignItems:'center'}}>
             <img src={details.url} style={{
                 border: '3px', 
                 borderRadius: '5px',
                 boxShadow: '3px 3px 20px black',
                 color: 'white',
-                textShadow:'2px 2px 5px black'}}
+                textShadow:'2px 2px 5px black',
+                maxWidth: '700px',
+            }}
             />
             <div style={{display: 'flex', textAlign: 'center', marginTop: '50px' }}>
-                <div style={{flexGrow: '1'}}>
+                <div style={{flexGrow: '1', marginRight: '100px'}}>
                     <IconButton 
                         onClick={() => details.onclick()}
                     >
@@ -38,7 +40,7 @@ export default (details) => {
                 </div>
                 <div style={{flexGrow: '1'}}>
                     <IconButton 
-                        onClick={details.onclick}
+                        onClick={() => details.onclick()}
                     >
                         <SentimentSatisfiedAltIcon style={{fontSize: '60px'}}/>
                     </IconButton>

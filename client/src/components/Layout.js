@@ -9,7 +9,7 @@ export default ({authenticate, currentUser, children, history}) => (
         currentUser={currentUser}
         history={history}
         />
-        <div style={{display:"flex", height:'100%', flexDirection: 'column', flexGrow: '1', alignItems: "center", justifyContent: 'center'}}>
+        <div style={{display:"flex", height:'100%', flexDirection: 'row', flexGrow: '1', justifyContent: 'left'}}>
             {children}
         </div>
     </div>
