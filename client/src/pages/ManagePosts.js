@@ -81,10 +81,9 @@ export default (props) => {
                                     <Typography gutterBottom variant="h5" component="h2">
                                     {`Post #${index + 1}`}
                                     </Typography>
-                                    
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                        across all continents except Antarctica
+                                    <Typography variant="body2" color="textSecondary" component="p" style={{minWidth="450px"}}>
+                                        {post.title}
+                                        {/* {post.description} */}
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
