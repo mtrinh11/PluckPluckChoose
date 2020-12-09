@@ -30,7 +30,7 @@ export default (props) => {
         props.history.push('/profile')
     }
 
-    const pushToHomePage = () => {
+    const pushToCreateCategoryPage = () => {
         props.history.push('/profile/createcategory')
     }
 
