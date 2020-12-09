@@ -33,6 +33,9 @@ export default (props) => {
     const [picUrl, setPicUrl] = useState(null);
     const [acctId, setAcctId] = useState('');
     const [formError, setFormError] = useState(false)
+    //Added
+    const [titleText, setTitle] = useState('')
+    const [descriptionText, setDescription] = useState('')
 
     useEffect(() => {
         getAccountId()
@@ -52,7 +55,10 @@ export default (props) => {
         try{
             let submittedInfo = {
                 account_id: acctId,
-                picture: picUrl
+                picture: picUrl,
+                //added title and description here -NZ
+                title: titleText,
+                description: descriptionText
             }
             let picToUpload = await __UploadPost(submittedInfo)
             console.log(picToUpload)
@@ -81,6 +87,30 @@ export default (props) => {
                             onChange={(e) => setPicUrl(e.target.value)}
                         />
                     </div>
+                    {/* Nico's edits below */}
+                    <div style={{margin: '10px'}}>
+                        <TextField
+                            fullwidth='true'
+                            id="title"
+                            label="Title"
+                            type="text"
+                            variant="outlined"
+                            color="secondary"
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+                    </div>
+                    <div style={{margin: '10px'}}>
+                        <TextField
+                            fullwidth='true'
+                            id="description"
+                            label="Description"
+                            type="text"
+                            variant="outlined"
+                            color="secondary"
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
+                    </div>
+                    {/* Nico's edits end */}
                     <div style={{margin: '10px'}}>
                     <TextField
                             fullwidth='true'
