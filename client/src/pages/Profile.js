@@ -30,6 +30,7 @@ export default () => {
     const getOneRandomPost = async () => {
         try {
             let post = await __GetRandomPost();
+            console.log(post)
             setPostId(post.id); 
             setPicUrl(post.picture);
             setTitle(post.text)
