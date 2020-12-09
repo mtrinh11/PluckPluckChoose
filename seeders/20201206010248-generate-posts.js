@@ -22,7 +22,7 @@ module.exports = {
             upvote: Math.floor(Math.random() * 100),
             downvote: Math.floor(Math.random() * 100),
             title: faker.lorem.sentence(),
-            description: faker.lorem.paragraph(),
+            description: faker.lorem.sentence(),
             account_id: account.id,
             createdAt: new Date(),
             updatedAt: new Date()
