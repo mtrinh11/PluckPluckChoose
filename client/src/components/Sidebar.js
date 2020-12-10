@@ -8,6 +8,7 @@ import DehazeIcon from '@material-ui/icons/Dehaze';
 import HomeIcon from '@material-ui/icons/Home';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
 import CategoryIcon from '@material-ui/icons/Category';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
 
 export default (props) => {
     const [collapsed, setCollapsed] = useState(true)
@@ -40,6 +41,10 @@ export default (props) => {
         props.history.push('/profile/showcategory')
     }
 
+    const pushToLeaderPage = () => {
+        props.history.push('/leaderboard')
+    }
+
     return (
         <ProSidebar
         style={{backgroundColor: 'white'}}
@@ -53,11 +58,14 @@ export default (props) => {
                 <MenuItem icon={<HomeIcon/>} onClick={() => pushToHomePage()}>
                     <h3> Home</h3>
                 </MenuItem>
-                <MenuItem icon={<AddBoxIcon/>} onClick={() => pushToCreatePage()}>
-                    <h3 >Create Post</h3>
+                <MenuItem icon={<WhatshotIcon/>} onClick={() => pushToLeaderPage()}>
+                    <h3 >Most Plucked</h3>
                 </MenuItem>
                 <MenuItem icon={<CategoryIcon/>} onClick={() => pushToShowCategoryPage()}>
                     <h3 >Pluck by Category</h3>
+                </MenuItem>
+                <MenuItem icon={<AddBoxIcon/>} onClick={() => pushToCreatePage()}>
+                    <h3 >Create Post</h3>
                 </MenuItem>
                 <MenuItem icon={<LoyaltyIcon/>} onClick={() => pushToCreateCategoryPage()}>
                     <h3 >Create Category</h3>
