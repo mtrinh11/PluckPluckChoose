@@ -242,7 +242,7 @@ FULL CRUD ON TAG
 
 1. Categories
     categories should be 
-          notNull
+          notNull for name
           unique
             (don't want six "dogs" categories)
 
@@ -260,9 +260,19 @@ FULL CRUD ON TAG
 
 4. Figure out comparison Page and how to log results
 
-6. Quokka mascot for Ok FOINE
+5. Quokka mascot for Ok FOINE
 
-5. Cloudinary would be cool (but none of us like it)
+6. Cloudinary would be cool (but none of us like it)
+
+
+I need to make a .js that maps through an API
+and for each API
+Does a Create Post
+
+
+
+
+
 
 Notes From Andre Poppin In
 
