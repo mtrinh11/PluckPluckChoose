@@ -3,7 +3,7 @@ import AuthCard from '../components/AuthCard'
 import {NavLink} from 'react-router-dom'
 import {makeStyles} from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
-import NavigateNextIcon from '@material-ui/core/NavigateNext';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 import {__GetRandomPost} from '../services/PostsServices'
 
