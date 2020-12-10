@@ -42,7 +42,7 @@ export const __UpdatePost = async (post_id) => {
 
 export const __UploadPost = async (formData) => {
     try {
-        console.log(`FRONTEND: PostServices: __UploaPost`)
+        console.log(`FRONTEND: PostServices: __UploadPost`)
         const response = await ApiClient.post(`/post/create`, formData)
         return response.data
     } catch (error) {

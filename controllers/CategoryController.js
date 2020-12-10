@@ -56,6 +56,22 @@ const DeleteCategory = async (request, response) => {
 }
 
 
+const GetCategoryIdByName = async (request, response) => {
+    try {
+        let categoryName = parseString(request.params.categoryName)
+        let foundCategory = await Category.findOne({
+            where: {
+                name: categoryName
+            }
+        })
+        console.log('CategoryController GetCategoryIdByName hits')
+        response.send(foundCategory)
+    }catch(error) {
+        console.log('CategoryController GetCategoryIdByName fails')
+        throw error
+    }
+}
+
 module.exports = {
     CreateCategory,
     GetCategory,
@@ -64,5 +80,6 @@ module.exports = {
     // They are included now in the purpose of our own project management
     // These are not necessary for MVP but are included for our own ease of use in testing
     EditCategory,
-    DeleteCategory
+    DeleteCategory,
+    GetCategoryIdByName
 }
