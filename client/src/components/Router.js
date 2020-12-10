@@ -12,6 +12,7 @@ import Profile from '../pages/Profile'
 import CreatePost from '../pages/CreatePost';
 import ManagePosts from '../pages/ManagePosts';
 import CreateCategory from '../pages/CreateCategory'
+import ShowCategory from '../pages/ShowCategory'
 
 import { __CheckSession } from '../services/UserServices'
 
@@ -141,6 +142,21 @@ export default function Router(props) {
                                 <Sidebar collapsed={false} {...props}/>
                                 <CreateCategory
                                     {...props}
+                                />
+                            </Layout>
+                        )}
+                    />
+                    <ProtectedRoute 
+                        authenticated={authenticate}
+                        exact 
+                        path = "/profile/showcategory"
+                        component = {(props) => (
+                            <Layout
+                                currentUser={currentUser}
+                                authenticate={authenticate}
+                            >
+                                <Sidebar collapsed={false} {...props}/>
+                                <ShowCategory
                                 />
                             </Layout>
                         )}
