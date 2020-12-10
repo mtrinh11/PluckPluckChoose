@@ -81,7 +81,7 @@ export default (props) => {
                                     <Typography gutterBottom variant="h5" component="h2">
                                     {`Post #${index + 1}`}
                                     </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p" >
+                                    <Typography variant="body2" color="textSecondary" component="p" style={{minWidth: "450px"}}>
                                         {post.title}
                                         {post.description}
                                     </Typography>
