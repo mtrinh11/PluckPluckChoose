@@ -40,6 +40,19 @@ const RemoveTagFromPost = async (request, response) => {
     } catch(error){throw error}
 }
 
+const RemoveAllTagsFromPost = async (request, response) => {
+    try{
+        let postId = parseInt(request.params.post_id)
+        await Tag.destroy({
+            where: {
+                post_id: postId
+            }
+        })
+        console.log('BACKEND: TagController: RemoveAllTagsFromPost')
+        response.send({message: `Deleted all tags from post with an id of ${postId}`})
+    } catch(error){throw error}
+}
+
 const GetAllPostsByCategory = async (request, response) => {
     try{
         let categoryId = parseInt(request.params.category_id)
@@ -49,7 +62,8 @@ const GetAllPostsByCategory = async (request, response) => {
         console.log('BACKEND: TagController: GetAllPostsByCategory')
         response.send(allPostsInCategory)
     } catch(error){throw error}
-}    
+}   
+
 
 const GetAllCategoriesOnPost = async (request, response) => {
     try{
@@ -67,5 +81,6 @@ module.exports = {
     GetAllPostsByCategory,
     GetAllCategoriesOnPost,
     TagPostToCategory,
-    RemoveTagFromPost
+    RemoveTagFromPost,
+    RemoveAllTagsFromPost
 }
