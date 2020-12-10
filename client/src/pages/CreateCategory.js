@@ -11,7 +11,7 @@ export default (props) => {
         e.preventDefault()
         try {
             let submittedInfo = {
-                title: titleText
+                name: titleText
             }
             let newCategory = await __CreateCategory(submittedInfo)
             setTitle(titleText)
@@ -26,6 +26,7 @@ export default (props) => {
 
         return (
             <div style ={{backgroundColor: 'white', padding: '50px', borderRadius: '20px'}}>
+                <h1> Create Category </h1>
                 <div className="row">
                     <form className="col s12" onSubmit={(e)=> handleSubmit(e)}>
                         <div style={{margin: '10px'}}>
