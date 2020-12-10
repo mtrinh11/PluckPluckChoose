@@ -4,8 +4,10 @@ import {__GetAccountByUserId} from '../services/AccountServices';
 import {__TagPostToCategory} from '../services/TagServices'
 import {__GetAllCategories, __FindCategoryByName} from '../services/CategoryServices'
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Button from '@material-ui/core/Button';
 
 import TextField from '@material-ui/core/TextField'
+import { makeStyles } from '@material-ui/core/styles';
 /**
  * we want to add full crud for posts here
  * so that means
@@ -30,8 +32,17 @@ import TextField from '@material-ui/core/TextField'
  * 
  * 
  */
+const useStyles = makeStyles((theme) => ({
+    margin: {
+      margin: theme.spacing(1),
+    },
+    extendedIcon: {
+      marginRight: theme.spacing(1),
+    },
+  }));
 
 export default (props) => {
+    const classes = useStyles();
 
     const [picUrl, setPicUrl] = useState(null);
     const [acctId, setAcctId] = useState('');
@@ -144,7 +155,9 @@ export default (props) => {
                             onChange={(e) => setPicUrl(e.target.value)}
                         />
                     </div>
-                    <button style={{margin: '10px'}}>Submit</button>
+                    <Button type='submit' variant="outlined" size="medium" color="primary" className={classes.margin}>
+                        Submit
+                    </Button>
                     {formError ? <p>Error While submitting</p> : <p></p>}
                 </form>
             </div>   

@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 import {__CreateUser} from '../services/UserServices';
 import{__CreateAccount} from '../services/AccountServices';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,26 +23,32 @@ export default (props) => {
     const [username, setUsername] = useState('')
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
+    const [formError, setFormError] = useState(false)
 
-const handleSubmit = async(e) => {
-    e.preventDefault();
-    try {
-        let userFormData = {
-            username: username,
-            email: email,
-            password: password
-        }
-        let newUser = await __CreateUser(userFormData)
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        try {
+            let userFormData = {
+                username: username,
+                email: email,
+                password: password
+            }
+            let newUser = await __CreateUser(userFormData)
 
-        let accountFormData = {
-            user_id: newUser.id,
+            let accountFormData = {
+                user_id: newUser.id,
+            }
+            await __CreateAccount(accountFormData)
+            props.history.push('/login')
+        } catch (error) {
+            setFormError(true)
+            throw error
         }
-        await __CreateAccount(accountFormData)
-        props.history.push('/login')
-    } catch (error) {
-        
     }
-}
+
+    useEffect(() => {
+            
+    }, [formError])
 
 
     return (
@@ -80,7 +88,10 @@ const handleSubmit = async(e) => {
                             onChange={(e) => setPassword(e.target.value)}
                         /> 
                     </div>
-                    <button> Sign Up </button>
+                    <Button type='submit' variant="outlined" size="medium" color="primary" className={classes.margin}>
+                        Sign Up
+                    </Button>
+                    {formError ? <p>Error While Signing In</p> : <p></p>}
                 </form>
             </div>
             
