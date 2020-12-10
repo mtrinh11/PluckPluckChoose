@@ -50,7 +50,6 @@ export default (props) => {
                                 label='Category Title'
                                 type="text"
                                 variant="outlined"
-                                color="secondary"
                                 onChange ={(e)=> setTitle(e.target.value)}
                             />
                         </div>

@@ -12,7 +12,10 @@ import Profile from '../pages/Profile'
 import CreatePost from '../pages/CreatePost';
 import ManagePosts from '../pages/ManagePosts';
 import CreateCategory from '../pages/CreateCategory'
-import ShowCategory from '../pages/ShowCategory'
+import ShowCategory from '../pages/ShowCategory';
+import ComparisonPage from '../pages/ComparisonPage';
+import LeaderboardPage from '../pages/LeaderboardPage';
+import EditPost from '../pages/EditPost'
 
 import { __CheckSession } from '../services/UserServices'
 
@@ -157,6 +160,53 @@ export default function Router(props) {
                             >
                                 <Sidebar collapsed={false} {...props}/>
                                 <ShowCategory
+                                />
+                            </Layout>
+                        )}
+                    />
+                    <ProtectedRoute 
+                        authenticated={authenticate}
+                        exact 
+                        path = "/leaderboard"
+                        component = {(props) => (
+                            <Layout
+                                currentUser={currentUser}
+                                authenticate={authenticate}
+                            >
+                                <Sidebar collapsed={false} {...props}/>
+                                <LeaderboardPage
+                                />
+                            </Layout>
+                        )}
+                    />
+                    <ProtectedRoute 
+                        authenticated={authenticate}
+                        exact 
+                        path = "/comparison"
+                        component = {(props) => (
+                            <Layout
+                                currentUser={currentUser}
+                                authenticate={authenticate}
+                            >
+                                <Sidebar collapsed={false} {...props}/>
+                                <ComparisonPage
+                                />
+                            </Layout>
+                        )}
+                    />
+                    <ProtectedRoute 
+                        authenticated={authenticate}
+                        exact 
+                        path = "/edit/:post_id"
+                        component = {(props) => (
+                            <Layout
+                                currentUser={currentUser}
+                                authenticate={authenticate}
+                            >
+                                <Sidebar collapsed={false} {...props}/>
+                                <EditPost 
+                                    currentUser = {currentUser}
+                                    {...props}
                                 />
                             </Layout>
                         )}

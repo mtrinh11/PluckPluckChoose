@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {__GetPostsByAccount, __DeletePost} from '../services/PostsServices';
 import {__GetAccountByUserId} from '../services/AccountServices'
+import {__TagPostToCategory, __RemoveTagFromPost} from '../services/TagServices'
 
 const useStyles = makeStyles({
     root: {
@@ -45,6 +46,7 @@ export default (props) => {
 
     const deletePost = async (post_id) => {
         try{
+            let del =await __RemoveTagFromPost(post_id)
             let res = await __DeletePost(post_id)
             props.history.push("/profile")
             console.log('FRONTEND ManagePosts deletePost hits')
@@ -68,24 +70,23 @@ export default (props) => {
                     return (
                         <div style={{margin: '10px'}}>
                         <Card className={classes.root}>
-                            <CardActionArea>
+                            <CardActionArea 
+                            > 
                                 <CardMedia
                                 className={classes.media}
                                 image={post.picture}
-                                title={`Post #${index}`}
+                                title={post.title}
+                                onClick={() => props.history.push(`/edit/${post.id}`)}
                                 />
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="h2">
-                                    {`Post #${index + 1}`}
+                                    {post.title}
                                     </Typography>
-                                    <Typography variant="h5" color="textSecondary" component="h5" style={{minWidth: "450px"}}>
-                                        Title: {post.title}
-                                    </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p" style={{minWidth: "450px"}}>
+                                    <Typography variant="body2" color="textSecondary" component="p" style={{minWidth: "550px"}}>
                                     <b>Description:</b> {post.description}
                                        </Typography>
                                 </CardContent>
-                            </CardActionArea>
+                            </CardActionArea    >
 
                             <CardActions>
                             
