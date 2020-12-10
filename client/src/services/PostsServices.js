@@ -30,10 +30,10 @@ export const __GetRandomPost = async () => {
     }
 }
 
-export const __UpdatePost = async (post_id) => {
+export const __UpdatePost = async (post_id, formData) => {
     try {
         console.log(`FRONTEND: PostServices: __UpdatePosts`)
-        const response = await ApiClient.put(`/post/edit/${post_id}`)
+        const response = await ApiClient.put(`/post/edit/${post_id}`, formData)
         return response.data
     } catch (error) {
         throw error
