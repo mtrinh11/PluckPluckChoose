@@ -74,7 +74,6 @@ export default (props) => {
 
     return (
         <div style={{backgroundColor: 'white', padding: '50px', borderRadius:'20px'}} >
-            <h1> Create Post </h1>
             <div className="row">
                 <form className="col s12" onSubmit={(e) => handleSubmit(e)}>
                     <div style={{margin: '10px'}}>

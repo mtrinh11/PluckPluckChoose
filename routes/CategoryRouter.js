@@ -6,7 +6,7 @@ Router.get('/:categoryId', controller.GetCategory)
 Router.get('/all/categories', controller.GetAllCategories)
 Router.put('/edit/:categoryId', controller.EditCategory)
 Router.delete('/delete/:categoryId', controller.DeleteCategory)
-
+Router.get('/findByName/:categoryName', controller.GetCategoryIdByName)
 
 
 module.exports = Router

@@ -16,52 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-<<<<<<< HEAD
-export default (props) => {
-    // we're going to use this to get the post and set it
-    const [picUrl, setPicUrl] = useState('');
-    const [isCreating, setCreatePost] = useState(false);
-    //
-
-
-    useEffect(() => {
-        getAccountPosts()
-        handleSubmit()
-    }, [])
-
-    const toggleCreatePost = (value) => {setCreatePost(value)}
-
-    const getAccountPosts = async () => {
-        try {
-            let accountPosts = await __GetPostsByAccount();
-            setPicUrl(accountPosts.picture)
-        } catch (error) {
-            console.log('FRONTEND: getAccountPosts fails')
-            throw error
-        }
-        return
-    }
-    
-    const handleSubmit = async (myEvent) => {
-        myEvent.preventDefault()
-        console.log('FRONTEND: Profile.js handleSubmit')
-        try{
-            let picToUpload = {
-                picture: picUrl
-            }
-            let newPost = await __UploadPost(picToUpload)
-            props.history.push('/create')
-            //line 63 is.... questionable
-        }
-        catch(error){
-            console.log('FRONTEND: handleSubmit fails')
-            throw error
-        }
-    }
-
-=======
 export default () => {
->>>>>>> 2ab94b1cca13c3f93ad724e1be37943a56877f8d
 
     const classes = useStyles();
 
@@ -77,7 +32,7 @@ export default () => {
             let post = await __GetRandomPost();
             setPostId(post.id); 
             setPicUrl(post.picture);
-            setTitle(post.title)
+            setTitle(post.text)
             setDescription(post.description)
             setPostUpvotes(post.upvote);
             setPostDownvotes(post.downvote);
@@ -104,6 +59,8 @@ export default () => {
         getOneRandomPost();
     }, [])
 
+    console.log('this is the title', titleText,'this is the desription', descriptionText)
+    
     return (
         <div>
             <div>
@@ -116,7 +73,7 @@ export default () => {
                         <IconButton 
                         style={{}}
                         onClick={() => {getOneRandomPost()}}>
-                            <p> Skip </p>
+                            <p> next </p>
                             <NavigateNextIcon />
                         </IconButton>
                     </div>
