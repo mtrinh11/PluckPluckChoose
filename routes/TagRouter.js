@@ -5,6 +5,7 @@ const controller = require('../controllers/TagController')
 Router.post('/tagIt', controller.TagPostToCategory)
 //DELETE
 Router.delete('/untagIt/:tag_id', controller.RemoveTagFromPost)
+Router.delete('/:post_id', controller.RemoveAllTagsFromPost)
 //READ
 Router.get('/categories/:post_id', controller.GetAllCategoriesOnPost)
 Router.get('/posts/:category_id', controller.GetAllPostsByCategory)
