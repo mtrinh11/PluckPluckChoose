@@ -54,9 +54,9 @@ export const __EditCategory = async (formData, categoryId) => {
 
 export const __FindCategoryByName = async (formData) => {
     try{
-        const response = await ApiClient.get(`/findByName/${formData}`)
-        return response.data
+        const response = await ApiClient.get(`/category/findByName/${formData}`, )
         console.log('CategoryServices __FindCategoryByName hits')
+        return response.data
     } catch(error){
         console.log('CategoryServices __FindCategoryByName fails')
         throw error

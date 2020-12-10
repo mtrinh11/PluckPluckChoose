@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {__GetPostsByAccount, __DeletePost, __UpdatePost, __UploadPost} from '../services/PostsServices'
 import {__GetAccountByUserId} from '../services/AccountServices';
-import {__GetAllCategories} from '../services/CategoryServices'
+import {__TagPostToCategory} from '../services/TagServices'
+import {__GetAllCategories, __FindCategoryByName} from '../services/CategoryServices'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import TextField from '@material-ui/core/TextField'
@@ -75,16 +76,15 @@ export default (props) => {
                 description: descriptionText
             }
             let picToUpload = await __UploadPost(submittedInfo)
-            //DOOO get postid for tag assocation 
-            // if (categoryChosen){
-            //     let res = await __GetCategoryByName(categoryChosen)
-            //     // res.id
-            //     input = {
-            //         category_id: res. ,
-            //         post_id: picToUpload.id
-            //     }
-            //     __TagPostToCategory(input)
-            // }
+            if (categoryChosen){
+                let res = await __FindCategoryByName(categoryChosen)
+                console.log(res)
+                let input = {
+                    categoryId: res.id ,
+                    postId: picToUpload.id
+                }
+                await __TagPostToCategory(input)
+            }
             props.history.push('/profile/manage')
         }// need to add a unique key to each post
         catch(error){
@@ -115,7 +115,7 @@ export default (props) => {
                     <Autocomplete
                         id="combo-box"
                         options={categories}
-                        getOptionLabel={(option) => `${option.name}, ${option.id}`}
+                        getOptionLabel={(option) => option.name}
                         style={{ width: 223}}
                         renderInput={(params) => <TextField id='test'{...params} label="Category" variant="outlined" />}
                         onChange={(e) => setCategoryChosen(e.target.innerHTML)}

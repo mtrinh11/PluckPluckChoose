@@ -58,13 +58,14 @@ const DeleteCategory = async (request, response) => {
 
 const GetCategoryIdByName = async (request, response) => {
     try {
-        let categoryName = parseString(request.params.categoryName)
+        let categoryName = request.params.category_name
         let foundCategory = await Category.findOne({
             where: {
                 name: categoryName
             }
         })
         console.log('CategoryController GetCategoryIdByName hits')
+        console.log(foundCategory)
         response.send(foundCategory)
     }catch(error) {
         console.log('CategoryController GetCategoryIdByName fails')

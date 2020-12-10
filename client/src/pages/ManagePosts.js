@@ -28,7 +28,6 @@ export default (props) => {
     const getAccountId = async() => {
         try {
             let res = await __GetAccountByUserId({user_id: props.currentUser.id})
-            console.log(res)
             setAcctId(res.data.id)
         } catch (error) {
             throw error
@@ -61,8 +60,6 @@ export default (props) => {
             getAccountPosts(acctId)
         }
     }, [acctId])
-
-    console.log(acctId, userPosts)
 
     return (
         <div style={{top: '0', margin: '10px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr'}}>
