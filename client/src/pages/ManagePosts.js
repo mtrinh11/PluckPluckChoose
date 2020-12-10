@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {__GetPostsByAccount, __DeletePost} from '../services/PostsServices';
 import {__GetAccountByUserId} from '../services/AccountServices'
+import {__TagPostToCategory, __RemoveTagFromPost} from '../services/TagServices'
 
 const useStyles = makeStyles({
     root: {
@@ -45,6 +46,7 @@ export default (props) => {
 
     const deletePost = async (post_id) => {
         try{
+            let del =await __RemoveTagFromPost(post_id)
             let res = await __DeletePost(post_id)
             props.history.push("/profile")
             console.log('FRONTEND ManagePosts deletePost hits')
