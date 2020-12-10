@@ -9,7 +9,10 @@ const CreateUser = async (request, response) => {
         const user = await User.create({ username, email, passwordDigest})
         console.log('BACKEND: UserController: User')
         response.send(user)
-    }catch(error){throw error}
+    }catch(error){
+        response.status(401).send({message: `no dice!`})
+        throw error
+    }
 }
  
 const GetUser = async (request, response) => {

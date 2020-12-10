@@ -1,8 +1,21 @@
 import React, {useState, useEffect} from 'react'
 import {__CreateCategory, __EditCategory} from '../services/CategoryServices'
+
 import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+    margin: {
+      margin: theme.spacing(1),
+    },
+    extendedIcon: {
+      marginRight: theme.spacing(1),
+    },
+  }));
 
 export default (props) => {
+    const classes = useStyles();
 
     const [titleText, setTitle] = useState('')
     const [formError, setFormError] = useState(false)
@@ -31,6 +44,7 @@ export default (props) => {
                     <form className="col s12" onSubmit={(e)=> handleSubmit(e)}>
                         <div style={{margin: '10px'}}>
                             <TextField
+                                required
                                 fullwidth='true'
                                 id='categoryTitle'
                                 label='Category Title'
@@ -40,7 +54,9 @@ export default (props) => {
                                 onChange ={(e)=> setTitle(e.target.value)}
                             />
                         </div>
-                        <button style ={{margin: '10px'}}>Submit</button>
+                        <Button type='submit' variant="outlined" size="medium" color="primary" className={classes.margin}>
+                            Submit
+                        </Button>
                         {formError ? <p>Error while submitting </p> : <p></p>}
                     </form>
                 </div>
