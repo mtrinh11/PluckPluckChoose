@@ -33,6 +33,7 @@ export const __RemoveAllTagsFromPost = async (postId) => {
     try{
         const response = await ApiClient.delete(`/tag/${postId}`)
         console.log('FRONTEND: TagServices, __RemoveAllTagsFromPost hits')
+        return response.data
     }catch(error){
         console.log('FRONTEND: TagServices, __RemoveAllTagsFromPost fails')
         throw error
