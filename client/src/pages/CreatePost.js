@@ -123,23 +123,33 @@ export default (props) => {
                         />
                     </div>
                     <div style={{margin: '10px'}}>
-                    <Autocomplete
-                        id="combo-box"
-                        options={categories}
-                        getOptionLabel={(option) => option.name}
-                        style={{ width: 223}}
-                        renderInput={(params) => <TextField id='test'{...params} label="Category" variant="outlined" />}
-                        onChange={(e) => setCategoryChosen(e.target.innerHTML)}
-                    /> 
+                        <Autocomplete
+                            id="combo-box"
+                            options={categories}
+                            getOptionLabel={(option) => option.name}
+                            style={{ width: 223}}
+                            renderInput={(params) => <TextField id='test'{...params} label="Category" variant="outlined" />}
+                            onChange={(e) => setCategoryChosen(e.target.innerHTML)}
+                        /> 
                     </div>
                     <div style={{margin: '10px'}}>
-                        <TextField
+                        {/* <TextField
                             fullwidth='true'
                             id="description"
                             label="Description"
                             type="text"
                             variant="outlined"
                             color="secondary"
+                            onChange={(e) => setDescription(e.target.value)}
+                        /> */}
+                        <TextField
+                            fullwidth='true'
+                            id="outlined-multiline-static"
+                            label="Description"
+                            multiline
+                            rows={4}
+                            defaultValue="Default Value"
+                            variant="outlined"
                             onChange={(e) => setDescription(e.target.value)}
                         />
                     </div>
