@@ -102,7 +102,7 @@ const GetMostPlucked = async (request, response) => {
         const mostPlucked = await Post.findAll({
             order: [['upvote', 'DESC']]
         })
-        response.send(mostPlucked)
+        response.send(mostPlucked.splice(0, 10))
         console.log('BACKEND: PostController GetMostPlucked hits')
     }catch(error){
         console.log('BACKEND: PostController GetMostPlucked fails')
@@ -115,7 +115,7 @@ const GetMostChucked = async (request, response) => {
         const mostChucked = await Post.findAll({
             order: [['downvote', 'DESC']]
         })
-        response.send(mostChucked)
+        response.send(mostChucked.splice(0, 10))
         console.log('BACKEND: PostController GetMostChucked hits')
     }catch(error){
         console.log('BACKEND: PostController GetMostChucked fails')

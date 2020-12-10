@@ -58,8 +58,6 @@ export default () => {
     useEffect(() => {
         getOneRandomPost();
     }, [])
-
-    console.log('this is the title', titleText,'this is the desription', descriptionText)
     
     return (
         <div>
