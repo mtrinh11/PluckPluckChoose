@@ -120,7 +120,7 @@ export default () => {
                         title= {titleText1}   
                         description= {descriptionText1}   
                         downvotes= {postDownvotes1}   
-                        upvotes= {postDownvotes2}   
+                        upvotes= {postDownvotes2}
                         //mt onclick
                         onclick= {()=> comparisonGame()}   
                     />

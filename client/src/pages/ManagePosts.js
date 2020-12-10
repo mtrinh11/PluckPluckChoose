@@ -74,14 +74,11 @@ export default (props) => {
                                 <CardMedia
                                 className={classes.media}
                                 image={post.picture}
-                                title={`Post #${index}`}
+                                title={post.title}
                                 />
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="h2">
-                                    {`Post #${index + 1}`}
-                                    </Typography>
-                                    <Typography variant="h5" color="textSecondary" component="h5" style={{minWidth: "550px"}}>
-                                        Title: {post.title}
+                                    {post.title}
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p" style={{minWidth: "550px"}}>
                                     <b>Description:</b> {post.description}

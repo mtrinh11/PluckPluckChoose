@@ -17,9 +17,8 @@ export default (props) => {
             }
             let editedPost = await __UpdatePost(submittedInfo)
             console.log(submittedInfo)
-            
             console.log('FRONTEND EditPost handleSubmit hits')
-        } catch (error){
+        } catch (error) {
             console.log('FRONTEND EditPost handleSubmit fails')
             setFormError(true)
             throw error
