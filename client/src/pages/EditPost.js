@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {__GetPostsByAccount, __DeletePost, __UpdatePost, __UploadPost, __GetOnePost} from '../services/PostsServices'
 import {__GetAccountByUserId} from '../services/AccountServices';
-import {__TagPostToCategory, __GetAllCategoriesOnPost} from '../services/TagServices'
+import {__TagPostToCategory, __GetAllCategoriesOnPost, __RemoveTagFromPost, __GetTag} from '../services/TagServices'
 import {__GetAllCategories, __FindCategoryByName, __GetCategory} from '../services/CategoryServices'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Button from '@material-ui/core/Button';
@@ -29,14 +29,13 @@ export default (props) => {
     const [descriptionText, setDescription] = useState('')
     const [categories, setCategories] = useState(null)
     const [categoryChosen, setCategoryChosen] = useState(null)
+    const [categoryChosenId, setCategoryChosenId] = useState(null)
+    const [postId, setPostId] = useState(null)
 
     useEffect(() => {
         getAccountId()
         getAllCategories()
         getPost()
-        if (!categoryChosen){
-            getCategoryName(categoryChosen)
-        }
     }, [])
 
     const getPost = async() => {
@@ -46,23 +45,25 @@ export default (props) => {
             setPicUrl(res.picture)
             setTitle(res.title)
             setDescription(res.description)
+            setPostId(res.id)
             let cat = await __GetAllCategoriesOnPost(props.match.params.post_id)
-            setCategoryChosen(cat.category_id)
-
-            // let catName = getCategoryName(cat.category_id)
-            // setCategory()
+            console.log(cat)
+            if (cat.length < 1) {
+                setCategoryChosenId(null)
+            } else {
+                setCategoryChosenId(cat[0].category_id)
+                ifCategoriesExist(cat)
+                let tagId = await __GetTag(res.id, cat[0].category_id)
+            await __RemoveTagFromPost(tagId.id)
+            }
         } catch (error) {
             throw error
         }
     }
 
-    const getCategoryName = async(catId) => {
-        try {
-            let res = await __GetCategory(catId)
-            console.log(res)
-        } catch (error) {
-            throw error
-        }
+    const ifCategoriesExist = async(arr) => {
+        let catName = await __GetCategory(arr[0].category_id)
+        setCategoryChosen(catName.name)
     }
 
     const getAllCategories = async() => {
@@ -93,13 +94,14 @@ export default (props) => {
                 title: titleText,
                 description: descriptionText
             }
-            let picToEdit = await __UpdatePost(submittedInfo)
+            console.log(submittedInfo)
+            let picToEdit = await __UpdatePost(postId, submittedInfo)
             if (categoryChosen){
                 let res = await __FindCategoryByName(categoryChosen)
                 console.log(res)
                 let input = {
                     categoryId: res.id ,
-                    postId: picToEdit.id
+                    postId: postId
                 }
                 await __TagPostToCategory(input)
             }
@@ -111,8 +113,34 @@ export default (props) => {
             throw error
         }
     }
+    
+    const field = () => {
+        if (categories ) {
+            console.log(categories[categoryChosenId - 1])
+            return (<Autocomplete
+                id="combo-box"
+                options={categories}
+                getOptionLabel={(option) => option.name}
+                style={{ width: 230}}
+                defaultValue={categories[categoryChosenId]}
+                renderInput={(params) => <TextField id='test'{...params} label="Category" variant="outlined" />}
+                onChange={(e) => setCategoryChosen(e.target.innerHTML)}
+            /> )
+        } 
+        return (
+            <Autocomplete
+                id="combo-box"
+                options={categories}
+                getOptionLabel={(option) => option.name}
+                style={{ width: 230}}
+                renderInput={(params) => <TextField id='test'{...params} label="Category" variant="outlined" />}
+                onChange={(e) => setCategoryChosen(e.target.innerHTML)}
+            /> 
+        )
+    }
 
-    console.log(props)
+    console.log(categories)
+    console.log(categoryChosen, categoryChosenId)
 
     return (
         <div style={{backgroundColor: 'white', padding: '50px', borderRadius:'20px'}} >
@@ -132,15 +160,8 @@ export default (props) => {
                         />
                     </div>
                     <div style={{margin: '10px'}}>
-                        <Autocomplete
-                            id="combo-box"
-                            options={categories}
-                            // value={`${categoryChosen}`}
-                            getOptionLabel={(option) => option.name}
-                            style={{ width: 230}}
-                            renderInput={(params) => <TextField id='test'{...params} label="Category" variant="outlined" />}
-                            onChange={(e) => setCategoryChosen(e.target.innerHTML)}
-                        /> 
+                        <p> Current Category: {categoryChosen} </p>
+                        { field() }                  
                     </div>
                     <div style={{margin: '10px'}}>
                         <TextField
