@@ -31,7 +31,7 @@ export default (details) => {
             />
             <div>
                 <p>{details.title}</p>
-                <p>{details.description}</p>
+                <p style={{maxWidth:'700px'}}>{details.description}</p>
             </div>
             <div style={{display: 'flex', textAlign: 'center', marginTop: '50px' }}>
                 <div style={{flexGrow: '1', marginRight: '100px'}}>

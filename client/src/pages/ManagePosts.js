@@ -68,7 +68,9 @@ export default (props) => {
                     return (
                         <div style={{margin: '10px'}}>
                         <Card className={classes.root}>
-                            <CardActionArea>
+                            <CardActionArea 
+                            to="/profile"
+                            > 
                                 <CardMedia
                                 className={classes.media}
                                 image={post.picture}
@@ -78,14 +80,14 @@ export default (props) => {
                                     <Typography gutterBottom variant="h5" component="h2">
                                     {`Post #${index + 1}`}
                                     </Typography>
-                                    <Typography variant="h5" color="textSecondary" component="h5" style={{minWidth: "450px"}}>
+                                    <Typography variant="h5" color="textSecondary" component="h5" style={{minWidth: "550px"}}>
                                         Title: {post.title}
                                     </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p" style={{minWidth: "450px"}}>
+                                    <Typography variant="body2" color="textSecondary" component="p" style={{minWidth: "550px"}}>
                                     <b>Description:</b> {post.description}
                                        </Typography>
                                 </CardContent>
-                            </CardActionArea>
+                            </CardActionArea    >
 
                             <CardActions>
                             

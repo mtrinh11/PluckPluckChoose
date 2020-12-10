@@ -118,7 +118,6 @@ export default (props) => {
                             label="Title"
                             type="text"
                             variant="outlined"
-                            color="secondary"
                             onChange={(e) => setTitle(e.target.value)}
                         />
                     </div>
@@ -127,33 +126,25 @@ export default (props) => {
                             id="combo-box"
                             options={categories}
                             getOptionLabel={(option) => option.name}
-                            style={{ width: 223}}
+                            style={{ width: 230}}
                             renderInput={(params) => <TextField id='test'{...params} label="Category" variant="outlined" />}
                             onChange={(e) => setCategoryChosen(e.target.innerHTML)}
                         /> 
                     </div>
                     <div style={{margin: '10px'}}>
-                        {/* <TextField
-                            fullwidth='true'
-                            id="description"
-                            label="Description"
-                            type="text"
-                            variant="outlined"
-                            color="secondary"
-                            onChange={(e) => setDescription(e.target.value)}
-                        /> */}
                         <TextField
                             fullwidth='true'
-                            id="outlined-multiline-static"
-                            label="Description"
+                            id="description"
+                            label="Description (250 max)"
                             multiline
                             rows={4}
-                            defaultValue="Default Value"
+                            style={{width: 230}}
+                            type="text"
+                            maxLength={250}
                             variant="outlined"
                             onChange={(e) => setDescription(e.target.value)}
                         />
                     </div>
-                    {/* Nico's edits end */}
                     <div style={{margin: '10px'}}>
                         <TextField
                             fullwidth='true'
@@ -161,7 +152,6 @@ export default (props) => {
                             label="Url of Picture"
                             type="url"
                             variant="outlined"
-                            color="secondary"
                             onChange={(e) => setPicUrl(e.target.value)}
                         />
                     </div>
