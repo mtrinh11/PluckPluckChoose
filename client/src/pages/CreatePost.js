@@ -75,7 +75,6 @@ export default (props) => {
                 description: descriptionText
             }
             let picToUpload = await __UploadPost(submittedInfo)
-            console.log(picToUpload)
             //DOOO get postid for tag assocation 
             // if (categoryChosen){
             //     let res = await __GetCategoryByName(categoryChosen)
