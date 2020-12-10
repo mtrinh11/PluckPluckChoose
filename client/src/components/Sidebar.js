@@ -9,6 +9,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
 import CategoryIcon from '@material-ui/icons/Category';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
+import CallSplitIcon from '@material-ui/icons/CallSplit';
 
 export default (props) => {
     const [collapsed, setCollapsed] = useState(true)
@@ -45,6 +46,10 @@ export default (props) => {
         props.history.push('/leaderboard')
     }
 
+    const pushToComparePage = () => {
+        props.history.push('/comparison')
+    }
+
     return (
         <ProSidebar
         style={{backgroundColor: 'white'}}
@@ -63,6 +68,9 @@ export default (props) => {
                 </MenuItem>
                 <MenuItem icon={<CategoryIcon/>} onClick={() => pushToShowCategoryPage()}>
                     <h3 >Pluck by Category</h3>
+                </MenuItem>
+                <MenuItem icon={<CallSplitIcon/>} onClick={() => pushToComparePage()}>
+                    <h3 >Would you rather...</h3>
                 </MenuItem>
                 <MenuItem icon={<AddBoxIcon/>} onClick={() => pushToCreatePage()}>
                     <h3 >Create Post</h3>
