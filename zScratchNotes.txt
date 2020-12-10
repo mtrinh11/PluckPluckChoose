@@ -245,10 +245,24 @@ FULL CRUD ON TAG
           notNull
           unique
             (don't want six "dogs" categories)
-2. Figure out comparison Page and how to log results
-3. Third Party API incorporation
-4. Cloudinary
 
+2. "Subreddit Page"
+      -page with a list of categories
+        where you can click one and it populates what you're iterating through
+        "You're now browsing {categoryName}"
+        -go to the through table
+        -find all posts associated to that category
+            -wiht that list you go to the post table
+            and then you have em and you can filter through them as your Pluckems
+
+3. Third Party API incorporation
+
+
+4. Figure out comparison Page and how to log results
+
+6. Quokka mascot for Ok FOINE
+
+5. Cloudinary would be cool (but none of us like it)
 
 Notes From Andre Poppin In
 
