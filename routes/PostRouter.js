@@ -8,6 +8,8 @@ Router.get('/random', controller.GetRandomPost)
 Router.get('/:post_id', controller.GetSinglePost)
 Router.get('/all/posts', controller.GetAllPosts)
 Router.get('/account/:account_id', controller.GetPostsByAccount)
+Router.get('/most/plucked', controller.GetMostPlucked)
+Router.get('/most/chucked', controller.GetMostChucked)
 //change get all posts to get "25" posts. otherwise the page could crash 
 // if there are say 10,000 posts
 //UPDATE

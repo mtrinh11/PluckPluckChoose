@@ -91,5 +91,27 @@ export const __GetPostsByAccount = async (accountId) => {
     }
 }
 
+export const __GetMostPlucked = async () => {
+    try{
+        const response = await ApiClient.get(`/post/most/plucked`)
+        console.log('FRONTEND PostServices __GetMostPlucked hits')
+        return response.data    
+    }catch(error){
+        console.log('FRONTEND PostServices __GetMostPlucked fails')    
+        throw error
+    }
+}
+
+export const __GetMostChucked = async () => {
+    try{
+        const response = await ApiClient.get(`/post/most/chucked`)
+        console.log('FRONTEND PostServices __GetMostChucked hits')
+        return response.data    
+    }catch(error){
+        console.log('FRONTEND PostServices __GetMostChucked fails')    
+        throw error
+    }
+}
+
 //feel like these should be camelcased but let's focus on functionality for now 
 //-nz
