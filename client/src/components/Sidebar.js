@@ -7,6 +7,7 @@ import AddBoxIcon from '@material-ui/icons/AddBox';
 import DehazeIcon from '@material-ui/icons/Dehaze';
 import HomeIcon from '@material-ui/icons/Home';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
+import CategoryIcon from '@material-ui/icons/Category';
 
 export default (props) => {
     const [collapsed, setCollapsed] = useState(true)
@@ -35,6 +36,10 @@ export default (props) => {
         props.history.push('/profile/createcategory')
     }
 
+    const pushToShowCategoryPage = () => {
+        props.history.push('/profile/showcategory')
+    }
+
     return (
         <ProSidebar
         style={{backgroundColor: 'white'}}
@@ -50,6 +55,9 @@ export default (props) => {
                 </MenuItem>
                 <MenuItem icon={<AddBoxIcon/>} onClick={() => pushToCreatePage()}>
                     <h3 >Create Post</h3>
+                </MenuItem>
+                <MenuItem icon={<CategoryIcon/>} onClick={() => pushToShowCategoryPage()}>
+                    <h3 >Pluck by Category</h3>
                 </MenuItem>
                 <MenuItem icon={<LoyaltyIcon/>} onClick={() => pushToCreateCategoryPage()}>
                     <h3 >Create Category</h3>
