@@ -50,7 +50,6 @@ export default (props) => {
                             label="Email"
                             type="email"
                             variant="outlined"
-                            color="secondary"
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
@@ -61,7 +60,6 @@ export default (props) => {
                             label="Password"
                             type="password"
                             variant="outlined"
-                            color="secondary"
                             onChange={(e) => setPassword(e.target.value)}
                         /> 
                     </div>

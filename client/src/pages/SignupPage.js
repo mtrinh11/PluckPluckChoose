@@ -62,7 +62,6 @@ export default (props) => {
                             label="Email"
                             type="email"
                             variant="outlined"
-                            color="secondary"
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
@@ -72,7 +71,6 @@ export default (props) => {
                             id="username"
                             label="Username"
                             variant="outlined"
-                            color="secondary"
                             type="text"
                             onChange={(e) => setUsername(e.target.value)}
                         /> 
@@ -83,7 +81,6 @@ export default (props) => {
                             id="password"
                             label="Password"
                             variant="outlined"
-                            color="secondary"
                             type="password"
                             onChange={(e) => setPassword(e.target.value)}
                         /> 
