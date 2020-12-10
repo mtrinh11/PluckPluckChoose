@@ -97,6 +97,32 @@ const GetPostsByAccount = async (request, response) => {
     }catch(error){throw error}
 }
 
+const GetMostPlucked = async (request, response) => {
+    try{
+        const mostPlucked = await Post.findAll({
+            order: [['upvote', 'DESC']]
+        })
+        response.send(mostPlucked.splice(0, 10))
+        console.log('BACKEND: PostController GetMostPlucked hits')
+    }catch(error){
+        console.log('BACKEND: PostController GetMostPlucked fails')
+        throw error
+    }
+}
+
+const GetMostChucked = async (request, response) => {
+    try{
+        const mostChucked = await Post.findAll({
+            order: [['downvote', 'DESC']]
+        })
+        response.send(mostChucked.splice(0, 10))
+        console.log('BACKEND: PostController GetMostChucked hits')
+    }catch(error){
+        console.log('BACKEND: PostController GetMostChucked fails')
+        throw error
+    }
+}
+
 module.exports ={
     CreatePost,
     GetSinglePost,
@@ -106,7 +132,9 @@ module.exports ={
     UpvotePost,
     DownvotePost,
     DeletePost,
-    GetPostsByAccount
+    GetPostsByAccount,
+    GetMostPlucked,
+    GetMostChucked
  }
 
 

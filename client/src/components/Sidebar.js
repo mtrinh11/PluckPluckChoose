@@ -64,7 +64,7 @@ export default (props) => {
                     <h3> Home</h3>
                 </MenuItem>
                 <MenuItem icon={<WhatshotIcon/>} onClick={() => pushToLeaderPage()}>
-                    <h3 >Most Plucked</h3>
+                    <h3 >Leaders</h3>
                 </MenuItem>
                 <MenuItem icon={<CategoryIcon/>} onClick={() => pushToShowCategoryPage()}>
                     <h3 >Pluck by Category</h3>
