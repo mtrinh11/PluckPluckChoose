@@ -91,7 +91,7 @@ export default (props) => {
                     <Button type='submit' variant="outlined" size="medium" color="primary" className={classes.margin}>
                         Sign Up
                     </Button>
-                    {formError ? <p>Error While Signing In</p> : <p></p>}
+                    {formError ? <p>Error While Signing Up</p> : <p></p>}
                 </form>
             </div>
             
