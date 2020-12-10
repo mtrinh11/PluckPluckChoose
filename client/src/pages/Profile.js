@@ -32,7 +32,7 @@ export default () => {
             let post = await __GetRandomPost();
             setPostId(post.id); 
             setPicUrl(post.picture);
-            setTitle(post.text)
+            setTitle(post.title)
             setDescription(post.description)
             setPostUpvotes(post.upvote);
             setPostDownvotes(post.downvote);
@@ -73,7 +73,7 @@ export default () => {
                         <IconButton 
                         style={{}}
                         onClick={() => {getOneRandomPost()}}>
-                            <p> next </p>
+                            <p> Skip </p>
                             <NavigateNextIcon />
                         </IconButton>
                     </div>

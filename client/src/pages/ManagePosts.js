@@ -28,7 +28,6 @@ export default (props) => {
     const getAccountId = async() => {
         try {
             let res = await __GetAccountByUserId({user_id: props.currentUser.id})
-            console.log(res)
             setAcctId(res.data.id)
         } catch (error) {
             throw error
@@ -62,8 +61,6 @@ export default (props) => {
         }
     }, [acctId])
 
-    console.log(acctId, userPosts)
-
     return (
         <div style={{top: '0', margin: '10px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr'}}>
             {userPosts ? 
@@ -81,10 +78,12 @@ export default (props) => {
                                     <Typography gutterBottom variant="h5" component="h2">
                                     {`Post #${index + 1}`}
                                     </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p" style={{minWidth: "450px"}}>
-                                        {post.title}
-                                        {post.description}
+                                    <Typography variant="h5" color="textSecondary" component="h5" style={{minWidth: "450px"}}>
+                                        Title: {post.title}
                                     </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p" style={{minWidth: "450px"}}>
+                                    <b>Description:</b> {post.description}
+                                       </Typography>
                                 </CardContent>
                             </CardActionArea>
 
