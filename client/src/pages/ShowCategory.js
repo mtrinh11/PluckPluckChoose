@@ -105,7 +105,7 @@ export default () => {
     }, [])
 
     return (
-        <div>
+        <div style={{padding: '50px'}}>
             <div style={{margin: '10px'}}>
                 <Autocomplete
                     id="combo-box"
@@ -141,7 +141,6 @@ export default () => {
                             onclick={(action) => {upvoteOrDownvote(action)}}
                         />
                     </div>
-                
             :
                 <p style={{margin: '50px'}}> Please pluck a category!</p>
             }
