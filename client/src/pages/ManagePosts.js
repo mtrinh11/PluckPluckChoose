@@ -71,12 +71,12 @@ export default (props) => {
                         <div style={{margin: '10px'}}>
                         <Card className={classes.root}>
                             <CardActionArea 
-                            to="/profile"
                             > 
                                 <CardMedia
                                 className={classes.media}
                                 image={post.picture}
                                 title={post.title}
+                                onClick={() => props.history.push(`/edit/${post.id}`)}
                                 />
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="h2">
