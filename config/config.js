@@ -10,7 +10,6 @@ module.exports = {
     },
     production: {
         use_env_variable: 'DATABASE_URL',
-        database: "my_first_db",
         dialect: "postgres",
         dialectOptions: {
             ssl: {
