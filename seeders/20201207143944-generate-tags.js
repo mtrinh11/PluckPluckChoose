@@ -4,16 +4,6 @@ const {Post, Category, sequelize} = require('../models')
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
-
    const tags = await Promise.all(
     [...Array(10)].map(async (_) => {
         let post = await Post.findOne({order: sequelize.random(), raw: true})
@@ -32,12 +22,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
     return queryInterface.bulkDelete('tags')
   }
 };

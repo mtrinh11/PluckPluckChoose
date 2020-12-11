@@ -27,23 +27,17 @@ const LoginUser = async (request, response) => {
     try{
         const user = await User.findOne({
             where: {email: request.body.email},
-            raw: true//added raw: true so we return the user with raw values, we dont need the model definitions for what we're doing here.
+            raw: true
         })
-        console.log('BACKEND: UserController: LoginUser --email received', user)
         if (user && (await passwordValid(request.body.password, user.passwordDigest))) {
-            let payload = {//change payload from const to let
-                _id: user.id,//undersore may be unnecessary
+            let payload = {
+                _id: user.id,
                 username: user.username
             }
             let token = createToken(payload)
             return response.send({user, token})
         }
         return (response.status(401).send({message: `no dice!`}))
-        // user && await(
-        //     (request.body.password_digest === user.password_digest)
-        //     ? response.send(payload) : response.status(401).send({message: `no dice!`})
-        // )
-        console.log('BACKEND: UserController: LoginUser --password check')
     }catch(error){throw error}
 }
 
@@ -51,7 +45,7 @@ const SessionStatus = async (req, res) => {
     try {
       const { token } = res.locals
       const user = await User.findByPk(token._id, {
-        attributes: ['id', 'username', 'email'] // Find a user by the id encoded in the json web token, only include the id, name and email fields
+        attributes: ['id', 'username', 'email']
       })
       res.send({ user, status: 'OK' })
     } catch (error) {

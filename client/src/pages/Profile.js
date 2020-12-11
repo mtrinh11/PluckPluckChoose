@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {NavLink} from 'react-router-dom'
 import AuthCard from '../components/AuthCard'
-
+//Materialize Imports
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
@@ -82,7 +82,7 @@ export default () => {
                         description={descriptionText}
                         downvotes={postDownvotes}
                         upvotes={postUpvotes}
-                        // mt onclick
+                        // The below onclick is a function made by Minh
                         onclick={(action) => {upvoteOrDownvote(action)}}
                     />
                 </div>
