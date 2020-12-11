@@ -1,4 +1,4 @@
-const {Post} = require('../models')
+const {Post, sequelize} = require('../models')
 const UserController = require('./UserController')
 
 
