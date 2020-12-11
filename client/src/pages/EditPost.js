@@ -23,7 +23,6 @@ export default (props) => {
     const [picUrl, setPicUrl] = useState(null);
     const [acctId, setAcctId] = useState('');
     const [formError, setFormError] = useState(false)
-    //Added
     const [titleText, setTitle] = useState('')
     const [descriptionText, setDescription] = useState('')
     const [categories, setCategories] = useState(null)
@@ -89,7 +88,6 @@ export default (props) => {
             let submittedInfo = {
                 account_id: acctId,
                 picture: picUrl,
-                //added title and description here -NZ
                 title: titleText,
                 description: descriptionText
             }
@@ -105,7 +103,7 @@ export default (props) => {
                 await __TagPostToCategory(input)
             }
             props.history.push('/profile/manage')
-        }// need to add a unique key to each post
+        }
         catch(error){
             console.log('FRONTEND: createPost fails')
             setFormError(true)
@@ -146,7 +144,6 @@ export default (props) => {
             <h1> Edit Post </h1>
             <div className="row">
                 <form className="col s12" onSubmit={(e) => handleSubmit(e)}>
-                    {/* Nico's edits below */}
                     <div style={{margin: '10px'}}>
                         <TextField
                             fullwidth='true'

@@ -8,30 +8,7 @@ import Button from '@material-ui/core/Button';
 
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles';
-/**
- * we want to add full crud for posts here
- * so that means
- *        CREATE
- *          upload a post
- *          tag a post
- *        READ
- *          get all posts made by a user   
- *        UPDATE
- *          Edit a post
- *        DESTROY
- *          Delete a post
- * 
- * 
- * 
- * 
- * 
- * and be able to display the user logged in
- *      the user logged in display could just be tucked into Nav
- *          cleaner this way
- * 
- * 
- * 
- */
+
 const useStyles = makeStyles((theme) => ({
     margin: {
       margin: theme.spacing(1),
@@ -47,7 +24,6 @@ export default (props) => {
     const [picUrl, setPicUrl] = useState(null);
     const [acctId, setAcctId] = useState('');
     const [formError, setFormError] = useState(false)
-    //Added
     const [titleText, setTitle] = useState('')
     const [descriptionText, setDescription] = useState('')
     const [categories, setCategories] = useState(null)
@@ -82,7 +58,6 @@ export default (props) => {
             let submittedInfo = {
                 account_id: acctId,
                 picture: picUrl,
-                //added title and description here -NZ
                 title: titleText,
                 description: descriptionText
             }
@@ -97,7 +72,7 @@ export default (props) => {
                 await __TagPostToCategory(input)
             }
             props.history.push('/profile/manage')
-        }// need to add a unique key to each post
+        }
         catch(error){
             console.log('FRONTEND: createPost fails')
             setFormError(true)
@@ -110,7 +85,6 @@ export default (props) => {
             <h1> Create Post </h1>
             <div className="row">
                 <form className="col s12" onSubmit={(e) => handleSubmit(e)}>
-                    {/* Nico's edits below */}
                     <div style={{margin: '10px'}}>
                         <TextField
                             fullwidth='true'
