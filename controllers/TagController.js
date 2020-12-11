@@ -1,7 +1,7 @@
 const {Tag, Post, Category } = require('../models')
 
 const TagPostToCategory = async (request, response) => {
-    try{
+    try {
         const postId = request.body.postId
         const categoryId = request.body.categoryId
         const post = await Post.findByPk(postId)
@@ -13,12 +13,13 @@ const TagPostToCategory = async (request, response) => {
             categoryId: parseInt(category.dataValues.id)
         })
         response.send(newTag)
-    } catch(error)
-    {throw error}
+    } catch(error) {
+        throw error
+    }
 }
 
 const RemoveTagFromPost = async (request, response) => {
-    try{
+    try {
         let tagId = parseInt(request.params.tag_id)
         await Tag.destroy({
             where: {
@@ -26,7 +27,9 @@ const RemoveTagFromPost = async (request, response) => {
             }
         })
         response.send({message: `Deleted tag with an id of ${tagId}`})
-    } catch(error){throw error}
+    } catch(error) {
+        throw error
+    }
 }
 
 const RemoveAllTagsFromPost = async (request, response) => {
@@ -38,7 +41,9 @@ const RemoveAllTagsFromPost = async (request, response) => {
             }
         })
         response.send({message: `Deleted all tags from post with an id of ${postId}`})
-    } catch(error){throw error}
+    } catch(error) {
+        throw error
+    }
 }
 
 const GetAllPostsByCategory = async (request, response) => {
@@ -48,7 +53,9 @@ const GetAllPostsByCategory = async (request, response) => {
             where: {category_id: categoryId}
         })
         response.send(allPostsInCategory)
-    } catch(error){throw error}
+    } catch(error) {
+        throw error
+    }
 }   
 
 
@@ -59,7 +66,9 @@ const GetAllCategoriesOnPost = async (request, response) => {
             where: {post_id: postId}
         })
         response.send(allTagsOnPost)
-    } catch(error){throw error}
+    } catch(error) {
+        throw error
+    }
 }
 
 const GetTag = async (request, response) => {
