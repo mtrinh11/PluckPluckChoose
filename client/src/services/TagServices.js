@@ -23,18 +23,20 @@ export const __TagPostToCategory = async (formData) => {
 }
 export const __RemoveTagFromPost = async (tagId) => {
     try{
-        const response = await ApiClient.delete(`/tag/${tagId}`)
+        const response = await ApiClient.delete(`/tag/untagIt/${tagId}`)
         console.log(`FRONTEND: TagServices, __RemoveTagFromPost`)
         return response.data
     }catch(error){throw error}
 }
 
-export const __RemoveAllTagsFromPost = async (postId) => {
+export const __GetTag = async (postId, categoryId) => {
     try{
-        const response = await ApiClient.delete(`/tag/${postId}`)
-        console.log('FRONTEND: TagServices, __RemoveAllTagsFromPost hits')
+        const response = await ApiClient.get(`/tag/${categoryId}/${postId}`)
+        console.log('FRONTEND: Tag Services, GetTag hits')
+        return response.data
     }catch(error){
-        console.log('FRONTEND: TagServices, __RemoveAllTagsFromPost fails')
+        console.log('FRONTEND: Tag Services, GetTag fails')
         throw error
     }
 }
+
