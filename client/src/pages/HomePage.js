@@ -53,7 +53,7 @@ export default () => {
     }
 
     const setOpacities = () => {
-        setOverlayOpacity('1')
+        setOverlayOpacity('0')
         setPostOpacity('0.2')
         setoverlayZindex('1')
     }
