@@ -23,7 +23,18 @@ export default () => {
     const classes = useStyles();
 
     const [picUrl1, setPicUrl] = useState('')
+    const [postId1, setPostId] = useState('')
+    const [postDownvotes1, setPostDownvotes] = useState('')
+    const [postUpvotes1, setPostUpvotes] = useState('')
+    const [titleText1, setTitle] = useState('')
+    const [descriptionText1, setDescription] = useState('')
+
     const [picUrl2, setPicUrl2] = useState('')
+    const [postId2, setPostId2] = useState('')
+    const [postDownvotes2, setPostDownvotes2] = useState('')
+    const [postUpvotes2, setPostUpvotes2] = useState('')
+    const [titleText2, setTitle2] = useState('')
+    const [descriptionText2, setDescription2] = useState('')
 
 
     const getPost1 = async () => {
@@ -35,17 +46,16 @@ export default () => {
         }
         return
     }
+    
     const getPost2 = async () => {
         try {
             let post2 = await __GetRandomPost()
             setPicUrl2(post2.picture)
-            
         }catch(error){
             throw error
         }
         return
     }
-
 
     const questionsArray = [
         `Who snitched to the cops?`,
@@ -64,7 +74,6 @@ export default () => {
         `Who asks to split the check, then makes a venmo request?`,
         `Who's buying pizza?`,
         `Whose merge had conflicts?`
-        
     ]
 
 
@@ -89,31 +98,37 @@ export default () => {
     },[])
 
     return (
-        <div> {/** GrandParent Div */}
-            <div>
-                <div style = {{margin: '50px'}}>
-                    <div className = {classes.root}>
-                        <IconButton
-                        style= {{}}
-                        onClick ={()=> {comparisonGame()}}
-                        >
-                        <p>next</p>
-                        <NavigateNextIcon />
-                        </IconButton>
-                    </div>
-                    {/** Post 1 Card*/}
-                    <AuthCard 
-                        url= {picUrl1}   
-                        //mt onclick
-                        onclick= {()=> comparisonGame()}   
-                    />
-                    <AuthCard
-                        url= {picUrl2}   
-                        //mt onclick
-                        onclick= {()=> comparisonGame()}   
-                    />
-                </div> 
+        <div style = {{margin: '50px', textAlign:'center', width: '100%'}}>
+            <h1> {getAQuestion()} </h1>
+            <div className = {classes.root}>
+                <IconButton
+                style= {{}}
+                onClick ={()=> {comparisonGame()}}
+                >
+                <p>next</p>
+                <NavigateNextIcon />
+                </IconButton>
             </div>
-        </div>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+                <img 
+                    src={picUrl1} 
+                    style={{
+                        maxWidth: '500px', 
+                        height: 'auto', 
+                        marginRight: '50px', 
+                        cursor:'pointer'
+                    }} 
+                    onClick={() => {comparisonGame()}}/>
+                <img
+                    src={picUrl2} 
+                    style={{
+                        maxWidth: '500px', 
+                        height: 'auto', 
+                        cursor:'pointer'
+                    }}
+                    onClick={() => {comparisonGame()}}
+                />
+            </div>
+        </div> 
     )
 }
