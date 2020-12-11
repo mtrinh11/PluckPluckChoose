@@ -5,6 +5,7 @@ import Card from '../components/Card'
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -69,7 +70,9 @@ export default () => {
                 textAlign: 'center'
             }}>
                 <h1 style={{marginTop: '10%', marginLeft: '100px'}}> Please sign in before plucking or chucking!</h1>
-                <button onClick={() => {resetOpacities()}}> ok FOINE </button>
+                <Button  onClick={() => {resetOpacities()}} type='submit' variant="outlined" size="medium" color="primary" className={classes.margin}>
+                    ok FOINE
+                </Button>
             </div>
             <div 
                 style={{ 
