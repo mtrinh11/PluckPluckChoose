@@ -262,6 +262,11 @@ FULL CRUD ON TAG
 
 5. Quokka mascot for Ok FOINE
 
+
+
+
+
+
 6. Cloudinary would be cool (but none of us like it)
 
 

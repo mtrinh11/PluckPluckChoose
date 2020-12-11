@@ -76,6 +76,11 @@ export default () => {
         `Pick the lightweight.`,
         `Who forgot their lighter, but took yours last time?`,
         `Which one's in your bank robbing team?`,
+        `Who would win in a fight?`,
+        `Who would you take home to Mom and Dad?`,
+        `Who has a better credit score?`,
+        `Who is more likely to go on Maury`,
+        `Who's using thier ex's Netflix?`,
     ]
 
 
