@@ -44,8 +44,6 @@ export default () => {
     }
 
     const whichBoard = () => {
-        console.log('run')
-        console.log(chuckers, pluckers)
         switch(choice) {
             case "pluckers":
                 return (
@@ -123,8 +121,6 @@ export default () => {
         } 
         setLoading(false)
     }, [])
-    
-    console.log(chuckers, pluckers)
     
     return (
         <div>

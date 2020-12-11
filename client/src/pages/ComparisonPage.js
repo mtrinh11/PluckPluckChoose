@@ -86,9 +86,7 @@ export default () => {
             getPost1()
             getPost2()
             getAQuestion()
-            console.log('ComparisonPage comparisonGame hits')
         }catch(error){
-            console.log('ComparisonPage comparisonGame fails')
             throw error
         }
     }
