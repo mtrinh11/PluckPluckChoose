@@ -1,4 +1,5 @@
 import axios from 'axios';
+require('dotenv').config()
 
 const ApiClient = axios.create({
     baseURL: process.env.NODE_ENV === 'production'
