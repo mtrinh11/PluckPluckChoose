@@ -70,13 +70,12 @@ export default () => {
 
 
     const questionsArray = [
-        'question 1',
-        'question 2',
-        'question 3',
-        'question 4',
-        'question 5',
-        'question 6',
-        'question 7'
+        `Who snitched to the cops?`,
+        `Who can make a better Eggs Benedict?`,
+        `Who would you rather drink with?`,
+        `Pick the lightweight.`,
+        `Who forgot their lighter, but took yours last time?`,
+        `Which one's in your bank robbing team?`,
     ]
 
 
@@ -101,41 +100,37 @@ export default () => {
     },[])
 
     return (
-        <div> {/** GrandParent Div */}
-            <div>
-                <div style = {{margin: '50px'}}>
-                    <div className = {classes.root}>
-                        <IconButton
-                        style= {{}}
-                        onClick ={()=> {comparisonGame()}}
-                        >
-                        <p>next</p>
-                        <NavigateNextIcon />
-                        </IconButton>
-                    </div>
-                    {/** Post 1 Card*/}
-                    <AuthCard
-                        id= {postId1}   
-                        url= {picUrl1}   
-                        title= {titleText1}   
-                        description= {descriptionText1}   
-                        downvotes= {postDownvotes1}   
-                        upvotes= {postDownvotes2}
-                        //mt onclick
-                        onclick= {()=> comparisonGame()}   
-                    />
-                    <AuthCard
-                        id= {postId2}   
-                        url= {picUrl2}   
-                        title= {titleText2}   
-                        description= {descriptionText2}   
-                        downvotes= {postDownvotes2}   
-                        upvotes= {postDownvotes2}   
-                        //mt onclick
-                        onclick= {()=> comparisonGame()}   
-                    />
-                </div> 
+        <div style = {{margin: '50px', textAlign:'center', width: '100%'}}>
+            <h1> {getAQuestion()} </h1>
+            <div className = {classes.root}>
+                <IconButton
+                style= {{}}
+                onClick ={()=> {comparisonGame()}}
+                >
+                <p>next</p>
+                <NavigateNextIcon />
+                </IconButton>
             </div>
-        </div>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+                <img 
+                    src={picUrl1} 
+                    style={{
+                        maxWidth: '500px', 
+                        height: 'auto', 
+                        marginRight: '50px', 
+                        cursor:'pointer'
+                    }} 
+                    onClick={() => {comparisonGame()}}/>
+                <img
+                    src={picUrl2} 
+                    style={{
+                        maxWidth: '500px', 
+                        height: 'auto', 
+                        cursor:'pointer'
+                    }}
+                    onClick={() => {comparisonGame()}}
+                />
+            </div>
+        </div> 
     )
 }
