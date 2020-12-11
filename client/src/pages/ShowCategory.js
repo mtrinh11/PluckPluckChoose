@@ -137,7 +137,6 @@ export default () => {
                             description={descriptionText}
                             downvotes={postDownvotes}
                             upvotes={postUpvotes}
-                            // mt onclick
                             onclick={(action) => {upvoteOrDownvote(action)}}
                         />
                     </div>

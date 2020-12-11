@@ -26,19 +26,3 @@ export const __GetAccountByUserId = async(formData) => {
         throw error
     }
 }
-
-// export const __UpdateAccount = async() => {
-//     try {
-
-//     } catch (error) {
-//         throw error
-//     }
-// }
-
-// export const __DeleteAccount = async() => {
-//     try {
-
-//     } catch (error) {
-//         throw error
-//     }
-// }

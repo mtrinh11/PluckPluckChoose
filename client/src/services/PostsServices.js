@@ -112,6 +112,3 @@ export const __GetMostChucked = async () => {
         throw error
     }
 }
-
-//feel like these should be camelcased but let's focus on functionality for now 
-//-nz
