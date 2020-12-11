@@ -7,7 +7,6 @@ export const __GetCategory = async (categoryId) => {
     try {
         const response = await ApiClient.get(`/category/${categoryId}`)
         console.log('FRONTEND: CategoryServices: __GetCategory')
-        return response.data
     } catch (error) {
         throw error
     }

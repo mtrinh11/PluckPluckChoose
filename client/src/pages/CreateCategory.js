@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import {__CreateCategory, __EditCategory} from '../services/CategoryServices'
-
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -29,9 +28,7 @@ export default (props) => {
             let newCategory = await __CreateCategory(submittedInfo)
             setTitle(titleText)
             props.history.push('/profile/manage')
-            console.log('FRONTEND CreatePost createCategory hits')
         }catch(error){
-            console.log('FRONTEND CreatePost createCategory fails')
             setFormError(true)
             throw error
         }

@@ -32,19 +32,3 @@ export const __CreateUser = async(userData) => {
         throw error
     }
 }
-
-// export const __UpdateUser = async() => {
-//     try {
-
-//     } catch (error) {
-//         throw error
-//     }
-// }
-
-// export const __DeleteUser = async() => {
-//     try {
-
-//     } catch (error) {
-//         throw error
-//     }
-// }

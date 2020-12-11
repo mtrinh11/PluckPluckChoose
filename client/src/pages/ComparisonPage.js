@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
+//Component Imports
 import AuthCard from '../components/AuthCard'
 import {NavLink} from 'react-router-dom'
+//Materialize Imports
 import {makeStyles} from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
@@ -39,35 +41,21 @@ export default () => {
         try {
             let post1 = await __GetRandomPost()
             setPicUrl(post1.picture)
-            setPostId(post1.id)
-            setTitle(post1.text)
-            setDescription(post1.description)
-            setPostUpvotes(post1.upvote)
-            setPostDownvotes(post1.downvote)
-            console.log('ComparisonPage: GetPost1 hits')
         }catch(error){
-            console.log('ComparisonPage: GetPost1 fails')
             throw error
         }
         return
     }
+    
     const getPost2 = async () => {
         try {
             let post2 = await __GetRandomPost()
             setPicUrl2(post2.picture)
-            setPostId2(post2.id)
-            setTitle2(post2.text)
-            setDescription2(post2.description)
-            setPostUpvotes2(post2.upvote)
-            setPostDownvotes2(post2.downvote)
-            console.log('ComparisonPage: GetPost2 hits')
         }catch(error){
-            console.log('ComparisonPage: GetPost2 fails')
             throw error
         }
         return
     }
-
 
     const questionsArray = [
         `Who snitched to the cops?`,
@@ -79,8 +67,13 @@ export default () => {
         `Who would win in a fight?`,
         `Who would you take home to Mom and Dad?`,
         `Who has a better credit score?`,
-        `Who is more likely to go on Maury`,
-        `Who's using thier ex's Netflix?`,
+        `Who's got a cooler butt?`,
+        `Who went on Maury?`,
+        `Who's using their ex's Netflix?`,
+        `Party tonight! Who's hosting?`,
+        `Who asks to split the check, then makes a venmo request?`,
+        `Who's buying pizza?`,
+        `Whose merge had conflicts?`
     ]
 
 

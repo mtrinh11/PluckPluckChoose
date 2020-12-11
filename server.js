@@ -23,6 +23,3 @@ app.get('*', (req, res) =>
 )
 
 app.listen(PORT, () => console.log(`Server Started On Port: ${PORT}`))
-
-
-//NZ checked 12/7 AM
