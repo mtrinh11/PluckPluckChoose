@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
+//Materialize Imports
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+//Services
 import {__CreateUser} from '../services/UserServices';
 import{__CreateAccount} from '../services/AccountServices';
 

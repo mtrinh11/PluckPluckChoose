@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
+//Component Imports
 import AuthCard from '../components/AuthCard'
 import {NavLink} from 'react-router-dom'
+//Materialize Imports
 import {makeStyles} from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
@@ -28,9 +30,7 @@ export default () => {
         try {
             let post1 = await __GetRandomPost()
             setPicUrl(post1.picture)
-            console.log('ComparisonPage: GetPost1 hits')
         }catch(error){
-            console.log('ComparisonPage: GetPost1 fails')
             throw error
         }
         return
@@ -39,9 +39,8 @@ export default () => {
         try {
             let post2 = await __GetRandomPost()
             setPicUrl2(post2.picture)
-            console.log('ComparisonPage: GetPost2 hits')
+            
         }catch(error){
-            console.log('ComparisonPage: GetPost2 fails')
             throw error
         }
         return
@@ -55,6 +54,16 @@ export default () => {
         `Pick the lightweight.`,
         `Who forgot their lighter, but took yours last time?`,
         `Which one's in your bank robbing team?`,
+        `Who would win in a fight?`,
+        `Who would you take home to Mom and Dad?`,
+        `Who has a better credit score?`,
+        `Who's got a cooler butt?`,
+        `Who went on Maury?`,
+        `Who's using their ex's Netflix?`,
+        `Party tonight! Who's hosting?`,
+        `Who asks to split the check, then makes a venmo request?`,
+        `Who's buying pizza?`,
+        `Whose merge had conflicts?`
         
     ]
 

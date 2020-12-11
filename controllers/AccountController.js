@@ -4,7 +4,6 @@ const CreateAccount = async (request, response) => {
     try{
         let accountDetails = {
             ...request.body
-            //I'm not necessarily sure if request.body is necessary since there's not a lot to parse in
         }
         let newAccount = await Account.create(accountDetails)
         console.log('BACKEND: AccountController: CreateAccount')
