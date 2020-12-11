@@ -64,7 +64,6 @@ export default (props) => {
             let picToUpload = await __UploadPost(submittedInfo)
             if (categoryChosen){
                 let res = await __FindCategoryByName(categoryChosen)
-                console.log(res)
                 let input = {
                     categoryId: res.id ,
                     postId: picToUpload.id
@@ -74,7 +73,6 @@ export default (props) => {
             props.history.push('/profile/manage')
         }
         catch(error){
-            console.log('FRONTEND: createPost fails')
             setFormError(true)
             throw error
         }

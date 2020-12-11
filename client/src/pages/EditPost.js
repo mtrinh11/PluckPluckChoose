@@ -39,13 +39,11 @@ export default (props) => {
     const getPost = async() => {
         try {
             let res = await __GetOnePost(props.match.params.post_id)
-            console.log(res)
             setPicUrl(res.picture)
             setTitle(res.title)
             setDescription(res.description)
             setPostId(res.id)
             let cat = await __GetAllCategoriesOnPost(props.match.params.post_id)
-            console.log(cat)
             if (cat.length < 1) {
                 setCategoryChosenId(null)
             } else {
@@ -91,11 +89,9 @@ export default (props) => {
                 title: titleText,
                 description: descriptionText
             }
-            console.log(submittedInfo)
             let picToEdit = await __UpdatePost(postId, submittedInfo)
             if (categoryChosen){
                 let res = await __FindCategoryByName(categoryChosen)
-                console.log(res)
                 let input = {
                     categoryId: res.id ,
                     postId: postId
@@ -105,7 +101,6 @@ export default (props) => {
             props.history.push('/profile/manage')
         }
         catch(error){
-            console.log('FRONTEND: createPost fails')
             setFormError(true)
             throw error
         }
@@ -113,7 +108,6 @@ export default (props) => {
     
     const field = () => {
         if (categories ) {
-            console.log(categories[categoryChosenId - 1])
             return (<Autocomplete
                 id="combo-box"
                 options={categories}
@@ -135,9 +129,6 @@ export default (props) => {
             /> 
         )
     }
-
-    console.log(categories)
-    console.log(categoryChosen, categoryChosenId)
 
     return (
         <div style={{backgroundColor: 'white', padding: '50px', borderRadius:'20px'}} >
