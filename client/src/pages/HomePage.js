@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {__GetRandomPost} from '../services/PostsServices';
 import Card from '../components/Card'
-
+import Switch from '@material-ui/core/Switch';
+import Paper from '@material-ui/core/Paper';
+import Slide from '@material-ui/core/Slide';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
@@ -28,6 +31,7 @@ export default () => {
     const [postOpacity, setPostOpacity] = useState(1)
     const [overlayOpacity, setOverlayOpacity] = useState(0)
     const [overlayZIndex, setoverlayZindex] = useState(-1)
+    const [checked, setChecked] = React.useState(false);
 
     useEffect(() => {
         getOneRandomPost();
@@ -60,16 +64,32 @@ export default () => {
         setoverlayZindex('-1')
     }
 
+    const handleChange = () => {
+        setChecked((prev) => !prev);
+      };
+
     return (
         <div style={{height:'100%', flexGrow:'1'}}>
             <div style={{
+                width: "100%",
                 zIndex: `${overlayZIndex}`,
                 opacity: `${overlayOpacity}`,
                 position: 'absolute',
-                backgroundColor: `rgba(256, 256, 256, ${overlayOpacity})`,
+                backgroundColor: `rgba(256, 256, 256, ${0})`,
                 textAlign: 'center'
             }}>
-                <h1 style={{marginTop: '10%', marginLeft: '100px'}}> Please sign in before plucking or chucking!</h1>
+                <h1 style={{marginTop: '10%', marginLeft: '100px'}}>
+                    Please sign in before pluckin or chuckin!
+                    <div className={classes.wrapper}>
+                        <FormControlLabel
+                            control={<Switch checked={checked} onChange={handleChange} />}
+                            label="I don't wanna tho"
+                        />
+                        <Slide direction="up" in={checked} mountOnEnter unmountOnExit>
+                                <img src="https://i.imgur.com/EKMuFIy.png   "/>
+                        </Slide>
+                    </div>
+                </h1>
                 <Button  onClick={() => {resetOpacities()}} type='submit' variant="outlined" size="medium" color="primary" className={classes.margin}>
                     ok FOINE
                 </Button>
