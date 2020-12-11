@@ -8,6 +8,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -85,17 +86,13 @@ export default () => {
                             label="I don't wanna tho"
                         />
                         <Slide direction="up" in={checked} mountOnEnter unmountOnExit>
-                            {/* <Paper elevation={4} className={classes.paper}>
-                            <svg className={classes.svg}> */}
                                 <img src="https://i.imgur.com/EKMuFIy.png   "/>
-                            {/* </svg>
-                            </Paper> */}
                         </Slide>
                     </div>
-                   
                 </h1>
-                
-                <button onClick={() => {resetOpacities()}}> ok FOINE </button>
+                <Button  onClick={() => {resetOpacities()}} type='submit' variant="outlined" size="medium" color="primary" className={classes.margin}>
+                    ok FOINE
+                </Button>
             </div>
             <div 
                 style={{ 

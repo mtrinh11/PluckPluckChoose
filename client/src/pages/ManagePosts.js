@@ -64,7 +64,7 @@ export default (props) => {
     }, [acctId])
 
     return (
-        <div style={{top: '0', margin: '10px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr'}}>
+        <div style={{top: '0', margin: '10px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', flexGrow: 1}}>
             {userPosts ? 
                 userPosts.map((post, index) => {
                     return (
