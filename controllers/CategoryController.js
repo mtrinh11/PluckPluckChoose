@@ -1,30 +1,33 @@
 const {Category} = require('../models')
 
 const CreateCategory = async (request, response) => {
-    try{
+    try {
         let categoryDetails = {
             ...request.body
         }
         let newCategory = await Category.create(categoryDetails)
-        console.log('BACKEND: CategoryController CreateCategory')
         response.send(newCategory)
-    }catch(error){throw error}
+    } catch(error) {
+        throw error
+    }
 }
 
 const GetCategory = async (request, response) => {
-    try{
+    try {
         let oneCategory = await Category.findByPk(request.params.categoryId)
-        console.log('BACKEND: CategoryController GetCategory')
         response.send(oneCategory)
-    }catch(error){throw error}
+    } catch(error) {
+        throw error
+    }
 }
 
 const GetAllCategories = async (request, response) => {
-    try{
+    try {
         let allCategories = await Category.findAll()
-        console.log('BACKEND: CategoryController GetAllCategories')
         response.send(allCategories)
-    }catch(error){throw error}
+    } catch(error) {
+        throw error
+    }
 }
 
 const EditCategory = async (request, response) => {
@@ -36,22 +39,24 @@ const EditCategory = async (request, response) => {
                 id: categoryId
             }
         })
-        console.log('BACKEND: CategoryController EditCategory')
         response.send(editedCategory)
-    }catch(error){throw error}
+    } catch(error) {
+        throw error
+    }
 }
 
 const DeleteCategory = async (request, response) => {
-    try{
+    try {
         let categoryId = parseInt(request.params.categoryId)
         await Category.destroy({
             where: {
                 id: categoryId
             }
         })
-        console.log('BACKEND: CategoryController DeleteCategory')
         response.send({message: `Deleted Category with an ID of ${categoryId}`})
-    }catch(error){throw error}
+    } catch(error) {
+        throw error
+    }
 }
 
 
@@ -63,11 +68,8 @@ const GetCategoryIdByName = async (request, response) => {
                 name: categoryName
             }
         })
-        console.log('CategoryController GetCategoryIdByName hits')
-        console.log(foundCategory)
         response.send(foundCategory)
-    }catch(error) {
-        console.log('CategoryController GetCategoryIdByName fails')
+    } catch(error) {
         throw error
     }
 }
