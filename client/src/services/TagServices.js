@@ -39,3 +39,13 @@ export const __RemoveAllTagsFromPost = async (postId) => {
         throw error
     }
 }
+
+export const __GetTag = async (categoryId, postId) => {
+    try{
+        const response = await ApiClient.get(`/tag/${categoryId}/${postId}`)
+        console.log('FRONTEND: Tag Services, GetTag hits')
+    }catch(error){
+        console.log('FRONTEND: Tag Services, GetTag fails')
+        throw error
+    }
+}

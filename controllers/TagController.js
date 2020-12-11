@@ -76,6 +76,23 @@ const GetAllCategoriesOnPost = async (request, response) => {
     } catch(error){throw error}
 }
 
+const GetTag = async (request, response) => {
+    try{
+        let postId = parseInt(request.params.post_id)
+        let categoryId = parseInt(request.params.category_id)
+        let tagId = await Tag.findOne({
+            where: {
+                post_id: postId,
+                category_id: categoryId
+            }
+        })
+        console.log('BACKEND: TagController: GetTag hits')
+    }catch(error){
+        console.log('BACKEND: TagController: GetTag fails')
+        throw error
+    }
+}
+
 
 module.exports = {
     GetAllPostsByCategory,

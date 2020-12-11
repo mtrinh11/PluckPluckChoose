@@ -95,13 +95,11 @@ export default () => {
                     {/** Post 1 Card*/}
                     <AuthCard 
                         url= {picUrl1}   
-
                         //mt onclick
                         onclick= {()=> comparisonGame()}   
                     />
                     <AuthCard
                         url= {picUrl2}   
-
                         //mt onclick
                         onclick= {()=> comparisonGame()}   
                     />
