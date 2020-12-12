@@ -12,6 +12,8 @@ Each post has upvotes and downvotes.
 The upvotes and downvotes are then compared against each other to establish a score for the animal. 
 A tinder clone of cute animals for users to upvote or downvote on.
 
+Deployed on Heroku: https://pluck-pluck-choose.herokuapp.com/
+
 ## User Stories
 
 - A user is able to upload their own pictures!
